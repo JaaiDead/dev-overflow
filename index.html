@@ -1,13 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/dev-overflow.github.io/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/dev-overflow.github.io/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Hi, I'm Jaai</h1>
+      <p>Developer • Modder • Creator</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a developer who loves building mods and web projects. Passionate about clean code, fun features, and creative problem solving.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>FTB Essentials</h3>
+        <p>A Minecraft Forge mod with warp permissions, LuckPerms integration, and dynamic warp storage.</p>
+      </div>
+      <div class="project">
+        <h3>Marvel Refabricated</h3>
+        <p>A Fabric 1.21.1 mod adding Marvel content using multithreading and lock-safe mechanics.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form action="mailto:your@email.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required/>
+        <input type="email" name="email" placeholder="Your Email" required/>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Jaai. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
 </html>
