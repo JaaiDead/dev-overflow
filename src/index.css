@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#1A1F2E] text-white;
+  }
+}
+
+@layer utilities {
+  @keyframes slideIn {
+    0% { 
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.3; }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+  
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  .animate-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
