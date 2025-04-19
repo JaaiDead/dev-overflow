@@ -1,0 +1,49 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .dark-bg {
+    background-color: #1e1e1e;
+  }
+  
+  .hero-text {
+    padding-top: 15%;
+    color: white;
+    text-shadow: 1px 1px 5px #000;
+  }
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+    display: inline-block;
+    max-width: 100%;
+    font-size: 2.4rem;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+  
+  .dark-card {
+    background-color: #2a2a2a;
+    color: white;
+  }
+  
+  .glow {
+    text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+  }
+  
+  .parallax img {
+    filter: brightness(0.6);
+  }
+  
