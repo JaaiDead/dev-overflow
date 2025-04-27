@@ -13,7 +13,7 @@ const Footer = () => {
           
           <div className="flex justify-center space-x-6">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/JaaiDead" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#1E90FF] transition-colors duration-300 flex items-center"
@@ -24,7 +24,7 @@ const Footer = () => {
             </a>
             
             <a 
-              href="https://modrinth.com/user/yourusername" 
+              href="https://modrinth.com/user/JaaiDead" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-[#1E90FF] transition-colors duration-300 flex items-center"
@@ -34,16 +34,6 @@ const Footer = () => {
               <span className="ml-2 hidden md:inline">Modrinth</span>
             </a>
             
-            <a 
-              href="https://twitter.com/yourusername" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#1E90FF] transition-colors duration-300 flex items-center"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
-              <span className="ml-2 hidden md:inline">Twitter</span>
-            </a>
           </div>
         </div>
         

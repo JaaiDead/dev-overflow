@@ -31,9 +31,9 @@ export const projects: Project[] = [
     link: "#",
   },
   {
-    title: "Block Enhancement Suite",
-    description: "A collection of tools and utilities for creating custom blocks with special properties like waterlogging and custom textures.",
-    image: "https://images.pexels.com/photos/7915464/pexels-photo-7915464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "Github Repository",
+    description: "A collection of my open-source projects and contributions to the Minecraft modding community.",
+    image: "https://images.pexels.com/photos/7915559/pexels-photo-7915559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "https://github.com/JaaiDead",
   },
   {
@@ -55,8 +55,8 @@ export const projects: Project[] = [
     link: "#",
   },
   {
-    title: "Entity AI Framework",
-    description: "A sophisticated AI system for custom entities, featuring pathfinding, behavior trees, and combat mechanics.",
+    title: "Entity",
+    description: " AI system for custom entities, featuring pathfinding, behavior trees, and combat mechanics.",
     image: "https://images.pexels.com/photos/7915559/pexels-photo-7915559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "#",
   }

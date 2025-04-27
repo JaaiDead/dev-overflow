@@ -7,7 +7,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
 
@@ -19,7 +19,13 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    // Construct the mailto link
+    const mailtoLink = `mailto:arcticquets.dev@gmail.com?subject=Contact%20Form%20Submission&body=Name:%20${formData.name}%0AEmail:%20${formData.email}%0AMessage:%20${formData.message}`;
+
+    // Open the user's default email client
+    window.location.href = mailtoLink;
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -31,7 +37,7 @@ const Contact = () => {
         email: '',
         message: ''
       });
-      
+
       // Reset status after 3 seconds
       setTimeout(() => setSubmitStatus(null), 3000);
     }, 1500);
@@ -40,19 +46,23 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-[#1A1F2E]">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-10 text-white">Get in Touch</h2>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+      <h2 className="text-4xl font-bold text-center mb-10 text-white font-heading animate-bounce">
+  Get in Touch
+</h2>
+
         
         <div className="max-w-lg mx-auto">
           {submitStatus === 'success' ? (
             <div className="bg-green-500 bg-opacity-20 text-green-200 p-4 rounded-lg mb-6 flex items-center justify-center">
-              <p className="text-center">Message sent successfully! I'll get back to you soon.</p>
+              <p className="text-center">Your email app should have opened. Thank you for reaching out!</p>
             </div>
           ) : submitStatus === 'error' ? (
             <div className="bg-red-500 bg-opacity-20 text-red-200 p-4 rounded-lg mb-6">
-              <p className="text-center">There was an error sending your message. Please try again.</p>
+              <p className="text-center">There was an error opening your email app. Please try again.</p>
             </div>
           ) : null}
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
               <label className="block text-sm font-medium mb-2 text-gray-300" htmlFor="name">
@@ -124,6 +134,21 @@ const Contact = () => {
               )}
             </button>
           </form>
+
+          {/* Discord Handle Section */}
+          <div className="mt-12 text-center text-gray-300">
+  <p className="text-lg mb-4 animate-pulse">
+    If you're having trouble contacting me via email, feel free to reach out on Discord!
+  </p>
+  <a
+    href="https://discord.com/users/730700346069876776"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-[#5865F2] text-white py-2 px-6 rounded-lg hover:bg-[#4752C4] transition-colors duration-300"
+  >
+    My Discord: Jaai.
+  </a>
+</div>
         </div>
       </div>
     </section>

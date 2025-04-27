@@ -8,54 +8,102 @@
   }
   
   body {
-    @apply bg-[#1A1F2E] text-white;
+    @apply bg-gradient-to-r from-indigo-900 to-purple-900 text-white font-sans;
   }
 }
 
 @layer utilities {
+  /* Slide-in animation */
   @keyframes slideIn {
-    0% { 
-      transform: translateY(-20px);
+    0% {
+      transform: translateY(-50px);
       opacity: 0;
     }
-    100% { 
+    100% {
       transform: translateY(0);
       opacity: 1;
     }
   }
   
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+  /* Bounce animation */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
   }
   
+  /* Fade in from the center */
+  @keyframes fadeInCenter {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Pulse effect */
   @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.3; }
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
   }
-  
+
+  /* Slide-in animation class */
   .animate-slide-in {
-    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
+    animation: slideIn 0.7s ease-out forwards;
   }
-  
-  .animate-float {
-    animation: float 2s ease-in-out infinite;
+
+  /* Bounce effect */
+  .animate-bounce {
+    animation: bounce 1.0s ease-in-out infinite;
   }
-  
+
+  /* Fade-in from center */
+  .animate-fade-in-center {
+    animation: fadeInCenter 1s ease-out forwards;
+  }
+
+  /* Pulse effect */
   .animate-pulse {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: pulse 1.2s ease-in-out infinite;
   }
-  
+
+  /* Animation delay classes */
   .animation-delay-100 {
     animation-delay: 100ms;
   }
-  
+
   .animation-delay-200 {
     animation-delay: 200ms;
   }
-  
+
   .animation-delay-300 {
     animation-delay: 300ms;
   }
+
+  @keyframes wave {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .wavy-animation {
+    animation: wave 1.5s ease-in-out infinite;
+  }
+  
 }
