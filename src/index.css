@@ -107,3 +107,43 @@
   }
   
 }
+:root {
+  --background: #1A1F2E;
+  --text: #ffffff;
+}
+
+.light {
+  --background: #ffffff;
+  --text: #1A1F2E;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.dark {
+  background-color: #1A1F2E;
+  color: #ffffff;
+}
+
+/* Ensure navbar links are visible in both modes */
+nav a {
+  color: inherit;
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientWave {
+  animation: gradientWave 5s ease infinite;
+}
