@@ -147,3 +147,100 @@ nav a {
 .animate-gradientWave {
   animation: gradientWave 5s ease infinite;
 }
+
+/* Modern background animations for Hero section */
+@keyframes subtleGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.3;
+  }
+  25% {
+    background-position: 100% 50%;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.3;
+  }
+  75% {
+    background-position: 0% 100%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes floatDown {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(15px) rotate(180deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes gentle-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: translateX(-100%) translateY(0px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%) translateY(-10px);
+    opacity: 0.3;
+  }
+}
+
+/* Animation classes */
+.animate-subtle-gradient {
+  animation: subtleGradient 8s ease-in-out infinite;
+}
+
+.animate-float-up {
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+.animate-float-down {
+  animation: floatDown 8s ease-in-out infinite;
+}
+
+.animate-gentle-rotate {
+  animation: gentle-rotate 20s linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 10s ease-in-out infinite;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-subtle-gradient,
+  .animate-float-up,
+  .animate-float-down,
+  .animate-gentle-rotate,
+  .animate-shimmer {
+    animation: none;
+  }
+}

@@ -65,10 +65,9 @@ const Hero = () => {
   }, []);
 
   return (
-    
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-[#1A1F2E] text-white"
+      className="min-h-screen flex items-center justify-center bg-[#1A1F2E] text-white relative overflow-hidden"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1623334231973-88116b8e2767?auto=compress&w=1920&h=1080&dpr=1')`,
         backgroundSize: 'cover',
@@ -77,7 +76,88 @@ const Hero = () => {
         backgroundColor: 'rgba(26, 31, 46, 0.8)',
       }}
     >
-      <div className="text-center">
+      {/* Animated background gradients */}
+      <div 
+        className="absolute inset-0 opacity-20 animate-subtle-gradient"
+        style={{
+          background: 'linear-gradient(45deg, #1E90FF, #00CED1, #9370DB, #FF6347)',
+          backgroundSize: '400% 400%',
+          filter: 'blur(1px)',
+        }}
+      />
+      
+      {/* Floating geometric shapes */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Large floating circle */}
+        <div 
+          className="absolute w-32 h-32 rounded-full opacity-10 animate-float-up"
+          style={{
+            background: 'linear-gradient(135deg, #1E90FF, #00CED1)',
+            top: '20%',
+            left: '10%',
+            animationDelay: '0s',
+          }}
+        />
+        
+        {/* Medium floating circle */}
+        <div 
+          className="absolute w-20 h-20 rounded-full opacity-15 animate-float-down"
+          style={{
+            background: 'linear-gradient(135deg, #9370DB, #FF6347)',
+            top: '60%',
+            right: '15%',
+            animationDelay: '2s',
+          }}
+        />
+        
+        {/* Small floating circle */}
+        <div 
+          className="absolute w-16 h-16 rounded-full opacity-20 animate-float-up"
+          style={{
+            background: 'linear-gradient(135deg, #00CED1, #1E90FF)',
+            bottom: '30%',
+            left: '20%',
+            animationDelay: '4s',
+          }}
+        />
+        
+        {/* Floating triangle */}
+        <div 
+          className="absolute w-12 h-12 opacity-15 animate-gentle-rotate"
+          style={{
+            top: '15%',
+            right: '25%',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+            background: 'linear-gradient(135deg, #FF6347, #9370DB)',
+            animationDelay: '1s',
+          }}
+        />
+        
+        {/* Floating diamond */}
+        <div 
+          className="absolute w-8 h-8 opacity-20 animate-float-down"
+          style={{
+            bottom: '20%',
+            right: '30%',
+            clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+            background: 'linear-gradient(135deg, #1E90FF, #00CED1)',
+            animationDelay: '3s',
+          }}
+        />
+        
+        {/* Shimmer effect */}
+        <div 
+          className="absolute w-full h-1 opacity-30 animate-shimmer"
+          style={{
+            top: '40%',
+            background: 'linear-gradient(90deg, transparent, #1E90FF, transparent)',
+            animationDelay: '5s',
+          }}
+        />
+      </div>
+      
+      {/* Content overlay */}
+      <div className="text-center relative z-10">
         <h1 className="text-5xl md:text-6xl font-bold mb-4 hero-animate">
           Hi, I'm{' '}
           <span style={{ color: '#1E90FF' }}>
@@ -88,13 +168,12 @@ const Hero = () => {
           I create custom Minecraft mods, tools, and server optimizations.
         </p>
         <button
-  id="projects-button"
-  onClick={scrollToProjects}
-  className="bg-[#1E90FF] text-white py-3 px-6 rounded-full hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 animate__animated animate__pulse animate__slow hero-animate"
->
-  View My Projects
-</button>
-
+          id="projects-button"
+          onClick={scrollToProjects}
+          className="bg-[#1E90FF] text-white py-3 px-6 rounded-full hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 animate__animated animate__pulse animate__slow hero-animate"
+        >
+          View My Projects
+        </button>
       </div>
     </section>
   );
