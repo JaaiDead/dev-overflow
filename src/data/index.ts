@@ -1,0 +1,88 @@
+export const NAV_LINKS = [
+  { label: 'home', href: 'home' },
+  { label: 'about', href: 'about' },
+  { label: 'projects', href: 'projects' },
+  { label: 'contact', href: 'contact' },
+]
+
+export const ROLES = ['Developer', 'Minecraft Modder', 'Open Sourcerer', 'Chess Player']
+
+export const SKILLS = [
+  { name: 'Java',       level: 90, cat: 'lang' },
+  { name: 'JavaScript', level: 82, cat: 'lang' },
+  { name: 'HTML / CSS', level: 85, cat: 'lang' },
+  { name: 'React',      level: 75, cat: 'fw' },
+  { name: 'Next.js',    level: 40, cat: 'learning' },
+  { name: 'TypeScript', level: 45, cat: 'learning' },
+  { name: 'Git',        level: 80, cat: 'tool' },
+  { name: 'Fabric API', level: 88, cat: 'tool' },
+]
+
+export const STATS = [
+  { value: 3,   suffix: '+', label: 'Years coding' },
+  { value: 15,  suffix: '+', label: 'Projects shipped' },
+  { value: 60,  suffix: '+', label: 'GitHub repos' },
+]
+
+export interface Project {
+  title: string
+  desc: string
+  tags: string[]
+  href: string
+  img: string
+  featured?: boolean
+}
+
+export const PROJECTS: Project[] = [
+  {
+    title: 'dev-overflow',
+    desc: 'Too much code, not enough coffee. My personal portfolio showcasing projects and open-source work.',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+    href: 'https://github.com/JaaiDead/dev-overflow',
+    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    featured: true,
+  },
+  {
+    title: 'SplashOminous',
+    desc: 'A creative Minecraft mod allowing players to splash ominous bottles. 5 stars on GitHub!',
+    tags: ['Java', 'Fabric', 'Minecraft'],
+    href: 'https://github.com/JaaiDead/SplashOminous',
+    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+    featured: true,
+  },
+  {
+    title: 'Marvel-Refabricated',
+    desc: 'A Minecraft mod bringing Marvel superpowers to the Fabric modloader. 2 stars and counting!',
+    tags: ['Java', 'Fabric', 'Gaming'],
+    href: 'https://github.com/JaaiDead/Marvel-Refabricated',
+    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+  },
+  {
+    title: 'PerfectParity Neo',
+    desc: 'Bug reporting page for PerfectParity mod. Active community management and issue tracking.',
+    tags: ['Community', 'Bug Tracking', 'Open Source'],
+    href: 'https://github.com/JaaiDead/PerfectParityNeos',
+    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+  },
+  {
+    title: 'Fabric Docs Contributor',
+    desc: 'Contributing to FabricMC\'s official documentation to help new modders learn the ecosystem.',
+    tags: ['Documentation', 'Java', 'Community'],
+    href: 'https://github.com/JaaiDead/fabric-docs',
+    img: 'https://fabricmc.net/assets/logo.png',
+  },
+  {
+    title: 'Modrinth Profile',
+    desc: 'Collection of published and maintained mods on Modrinth, reaching thousands of downloads.',
+    tags: ['Portfolio', 'Mods', 'Community'],
+    href: 'https://modrinth.com/user/JaaiDead',
+    img: 'https://docs.modrinth.com/img/logo.svg',
+  },
+]
+
+export const CONNECT = [
+  { label: 'GitHub',   value: 'JaaiDead',                      href: 'https://github.com/JaaiDead' },
+  { label: 'Email',    value: 'arcticquests.dev@gmail.com',    href: 'mailto:arcticquests.dev@gmail.com' },
+  { label: 'Discord',  value: 'Jaai.',                         href: 'https://discord.com/users/730700346069876776' },
+  { label: 'Modrinth', value: 'JaaiDead',                      href: 'https://modrinth.com/user/JaaiDead' },
+]
