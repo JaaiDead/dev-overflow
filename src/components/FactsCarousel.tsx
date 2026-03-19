@@ -1,38 +1,38 @@
-import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CarouselItem {
-  icon: string
-  text: string
+  icon: string;
+  text: string;
 }
 
 interface FactsCarouselProps {
-  items: CarouselItem[]
-  autoPlayInterval?: number
+  items: CarouselItem[];
+  autoPlayInterval?: number;
 }
 
 export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsCarouselProps) {
-  const [current, setCurrent] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (isPaused || items.length <= 1) return
+    if (isPaused || items.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrent(prev => (prev + 1) % items.length)
-    }, autoPlayInterval)
+      setCurrent((prev) => (prev + 1) % items.length);
+    }, autoPlayInterval);
 
-    return () => clearInterval(interval)
-  }, [isPaused, items.length, autoPlayInterval])
+    return () => clearInterval(interval);
+  }, [isPaused, items.length, autoPlayInterval]);
 
-  const next = () => setCurrent(prev => (prev + 1) % items.length)
-  const prev = () => setCurrent(p => (p - 1 + items.length) % items.length)
-  const goTo = (index: number) => setCurrent(index)
+  const next = () => setCurrent((prev) => (prev + 1) % items.length);
+  const prev = () => setCurrent((p) => (p - 1 + items.length) % items.length);
+  const goTo = (index: number) => setCurrent(index);
 
-  if (items.length === 0) return null
+  if (items.length === 0) return null;
 
   return (
-    <div 
+    <div
       className="relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -61,10 +61,8 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
 
         {/* Carousel items */}
         <div className="flex items-center justify-center gap-2 px-10 text-center">
-          <span className="text-2xl animate-slide-carousel">
-            {items[current].icon}
-          </span>
-          <span 
+          <span className="text-2xl animate-slide-carousel">{items[current].icon}</span>
+          <span
             key={current}
             className="font-mono text-sm text-text-dim dark:text-dark-text-dim animate-slide-carousel"
           >
@@ -82,8 +80,8 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
               onClick={() => goTo(index)}
               className={`transition-all ${
                 index === current
-                  ? 'w-8 h-2 bg-accent rounded-full'
-                  : 'w-2 h-2 bg-text-muted dark:bg-dark-text-muted rounded-full hover:bg-text-dim dark:hover:bg-dark-text-dim'
+                  ? "w-8 h-2 bg-accent rounded-full"
+                  : "w-2 h-2 bg-text-muted dark:bg-dark-text-muted rounded-full hover:bg-text-dim dark:hover:bg-dark-text-dim"
               }`}
               aria-label={`Go to item ${index + 1}`}
             />
@@ -91,5 +89,5 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
         </div>
       )}
     </div>
-  )
+  );
 }
