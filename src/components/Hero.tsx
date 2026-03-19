@@ -25,11 +25,17 @@ export default function Hero() {
       {/* Radial glow centre */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,163,0.04)_0%,transparent_65%)]" />
 
-      {/* Corner accents */}
-      <div className="absolute top-20 left-8 w-px h-24 bg-gradient-to-b from-accent/50 to-transparent" />
-      <div className="absolute top-20 left-8 w-24 h-px bg-gradient-to-r from-accent/50 to-transparent" />
-      <div className="absolute bottom-20 right-8 w-px h-24 bg-gradient-to-t from-accent/50 to-transparent" />
-      <div className="absolute bottom-20 right-8 w-24 h-px bg-gradient-to-l from-accent/50 to-transparent" />
+      {/* Corner accents - curved */}
+      <div className="absolute top-20 left-8">
+        <svg width="100" height="100" viewBox="0 0 100 100" className="text-accent/50">
+          <path d="M 0 100 Q 0 0 100 0" stroke="currentColor" strokeWidth="1" fill="none" />
+        </svg>
+      </div>
+      <div className="absolute bottom-20 right-8">
+        <svg width="100" height="100" viewBox="0 0 100 100" className="text-accent/50">
+          <path d="M 100 0 Q 100 100 0 100" stroke="currentColor" strokeWidth="1" fill="none" />
+        </svg>
+      </div>
 
       {/* Floating decorative code */}
       <pre className="absolute top-32 right-12 hidden xl:block font-mono text-[10px] text-white/[0.04] leading-relaxed pointer-events-none select-none text-right">

@@ -1,7 +1,33 @@
-import { ExternalLink, Star } from "lucide-react";
+import {
+  ExternalLink,
+  Star,
+  Code2,
+  Sparkles,
+  Zap,
+  Bug,
+  BookOpen,
+  Package,
+  Snowflake,
+  Blocks,
+  Globe,
+  Users,
+} from "lucide-react";
 import { useReveal } from "../hooks";
 import { PROJECTS, BUSINESS_PROJECTS } from "../data";
 import { useProfile } from "../contexts/ProfileContext";
+
+const iconMap = {
+  Code2,
+  Sparkles,
+  Zap,
+  Bug,
+  BookOpen,
+  Package,
+  Snowflake,
+  Blocks,
+  Globe,
+  Users,
+};
 
 export default function Projects() {
   const { ref, visible } = useReveal();
@@ -34,65 +60,66 @@ export default function Projects() {
 
         {/* Cards grid */}
         <div className="grid sm:grid-cols-2 gap-4">
-          {projects.map((p, i) => (
-            <a
-              key={p.title}
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`glass-clay group relative flex flex-col p-6 overflow-hidden transition-all duration-500 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              {/* Hover glow - enhanced */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.08] via-purple/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {projects.map((p, i) => {
+            const IconComponent = iconMap[p.icon as keyof typeof iconMap];
+            return (
+              <a
+                key={p.title}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`glass-clay group relative flex flex-col p-6 overflow-hidden transition-all duration-500 ${
+                  visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                {/* Hover glow - enhanced */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.08] via-purple/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              {/* Featured badge */}
-              {p.featured && (
-                <div className="absolute top-4 right-4 flex items-center gap-1 font-mono text-[10px] text-accent clay-accent px-2 py-1">
-                  <Star size={9} /> featured
+                {/* Featured badge */}
+                {p.featured && (
+                  <div className="absolute top-4 right-4 flex items-center gap-1 font-mono text-[10px] text-accent clay-accent px-2 py-1">
+                    <Star size={9} /> featured
+                  </div>
+                )}
+
+                {/* Icon with glow */}
+                <div className="relative w-10 h-10 glass-sm flex items-center justify-center mb-4 overflow-hidden group-hover:shadow-glass-accent transition-all">
+                  {IconComponent && (
+                    <IconComponent
+                      size={20}
+                      className="text-accent group-hover:scale-110 transition-transform duration-300"
+                    />
+                  )}
                 </div>
-              )}
 
-              {/* Icon with glow */}
-              <div className="relative w-10 h-10 glass-sm flex items-center justify-center mb-4 overflow-hidden group-hover:shadow-glass-accent transition-all">
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-300"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-              </div>
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-body font-semibold text-text-primary dark:text-dark-text-primary group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
+                  <ExternalLink
+                    size={13}
+                    className="text-text-dim dark:text-dark-text-dim/40 group-hover:text-accent transition-colors flex-shrink-0 mt-0.5"
+                  />
+                </div>
 
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="font-body font-semibold text-text-primary dark:text-dark-text-primary group-hover:text-accent transition-colors">
-                  {p.title}
-                </h3>
-                <ExternalLink
-                  size={13}
-                  className="text-text-dim dark:text-dark-text-dim/40 group-hover:text-accent transition-colors flex-shrink-0 mt-0.5"
-                />
-              </div>
+                <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim leading-relaxed mb-5 flex-1">
+                  {p.desc}
+                </p>
 
-              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim leading-relaxed mb-5 flex-1">
-                {p.desc}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="glass-sm font-mono text-[10px] px-2 py-0.5 text-text-dim dark:text-dark-text-dim"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </a>
-          ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="glass-sm font-mono text-[10px] px-2 py-0.5 text-text-dim dark:text-dark-text-dim"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            );
+          })}
         </div>
 
         {/* Footer */}
