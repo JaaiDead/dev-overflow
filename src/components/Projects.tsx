@@ -23,7 +23,7 @@ export default function Projects() {
         {/* Heading */}
         <div className={`mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="font-mono text-xs text-accent tracking-[0.2em] uppercase mb-3">// projects</p>
-          <h2 className="font-display text-6xl md:text-7xl text-text-primary tracking-wide">
+          <h2 className="font-display text-6xl md:text-7xl text-text-primary dark:text-dark-text-primary tracking-wide">
             {isPersonal ? "WHAT I'VE BUILT" : 'OUR SERVICES'}
           </h2>
         </div>
@@ -58,15 +58,15 @@ export default function Projects() {
               </div>
 
               <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="font-body font-semibold text-text-primary group-hover:text-accent transition-colors">{p.title}</h3>
-                <ExternalLink size={13} className="text-text-dim/40 group-hover:text-accent transition-colors flex-shrink-0 mt-0.5" />
+                <h3 className="font-body font-semibold text-text-primary dark:text-dark-text-primary group-hover:text-accent transition-colors">{p.title}</h3>
+                <ExternalLink size={13} className="text-text-dim dark:text-dark-text-dim/40 group-hover:text-accent transition-colors flex-shrink-0 mt-0.5" />
               </div>
 
-              <p className="font-mono text-xs text-text-dim leading-relaxed mb-5 flex-1">{p.desc}</p>
+              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim leading-relaxed mb-5 flex-1">{p.desc}</p>
 
               <div className="flex flex-wrap gap-1.5">
                 {p.tags.map(t => (
-                  <span key={t} className="glass-sm font-mono text-[10px] px-2 py-0.5 text-text-dim">
+                  <span key={t} className="glass-sm font-mono text-[10px] px-2 py-0.5 text-text-dim dark:text-dark-text-dim">
                     {t}
                   </span>
                 ))}
@@ -79,17 +79,17 @@ export default function Projects() {
         <div className={`mt-10 text-center transition-all duration-700 delay-500 ${visible ? 'opacity-100' : 'opacity-0'}`}>
           {isPersonal ? (
             <>
-              <p className="font-mono text-xs text-text-dim mb-4">more shipping soon -</p>
+              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim mb-4">more shipping soon -</p>
               <a href="https://github.com/JaaiDead" target="_blank" rel="noopener noreferrer"
-                className="clay-button inline-flex items-center gap-2 font-mono text-xs text-bg px-5 py-2 transition-all hover:scale-105 active:scale-95">
+                className="clay-button inline-flex items-center gap-2 font-mono text-xs text-text-primary dark:text-dark-text-primary px-5 py-2 transition-all hover:scale-105 active:scale-95">
                 see all on GitHub ↗
               </a>
             </>
           ) : (
             <>
-              <p className="font-mono text-xs text-text-dim mb-4">ready to start your project? -</p>
+              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim mb-4">ready to start your project? -</p>
               <a href="mailto:arcticquests.dev@gmail.com?subject=Project%20Inquiry" target="_blank" rel="noopener noreferrer"
-                className="clay-button inline-flex items-center gap-2 font-mono text-xs text-bg px-5 py-2 transition-all hover:scale-105 active:scale-95">
+                className="clay-button inline-flex items-center gap-2 font-mono text-xs text-text-primary dark:text-dark-text-primary px-5 py-2 transition-all hover:scale-105 active:scale-95">
                 get in touch ↗
               </a>
             </>

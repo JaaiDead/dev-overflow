@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     desc: 'Too much code, not enough coffee. My personal portfolio showcasing projects and open-source work.',
     tags: ['React', 'TypeScript', 'Tailwind'],
     href: 'https://github.com/JaaiDead/dev-overflow',
-    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    img: 'https://via.placeholder.com/400x300/10B981/FFFFFF?text=Portfolio',
     featured: true,
   },
   {
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     desc: 'A creative Minecraft mod allowing players to splash ominous bottles. 5 stars on GitHub!',
     tags: ['Java', 'Fabric', 'Minecraft'],
     href: 'https://github.com/JaaiDead/SplashOminous',
-    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+    img: 'https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Minecraft+Mod',
     featured: true,
   },
   {
@@ -62,28 +62,28 @@ export const PROJECTS: Project[] = [
     desc: 'A Minecraft mod bringing Marvel superpowers to the Fabric modloader. 2 stars and counting!',
     tags: ['Java', 'Fabric', 'Gaming'],
     href: 'https://github.com/JaaiDead/Marvel-Refabricated',
-    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+    img: 'https://via.placeholder.com/400x300/EC4899/FFFFFF?text=Marvel+Mod',
   },
   {
     title: 'PerfectParity Neo',
     desc: 'Bug reporting page for PerfectParity mod. Active community management and issue tracking.',
     tags: ['Community', 'Bug Tracking', 'Open Source'],
     href: 'https://github.com/JaaiDead/PerfectParityNeos',
-    img: 'https://avatars.githubusercontent.com/u/730700346069876776?v=4',
+    img: 'https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Bug+Tracker',
   },
   {
     title: 'Fabric Docs Contributor',
     desc: 'Contributing to FabricMC\'s official documentation to help new modders learn the ecosystem.',
     tags: ['Documentation', 'Java', 'Community'],
     href: 'https://github.com/JaaiDead/fabric-docs',
-    img: 'https://fabricmc.net/assets/logo.png',
+    img: 'https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Documentation',
   },
   {
     title: 'Modrinth Profile',
     desc: 'Collection of published and maintained mods on Modrinth, reaching thousands of downloads.',
     tags: ['Portfolio', 'Mods', 'Community'],
     href: 'https://modrinth.com/user/JaaiDead',
-    img: 'https://docs.modrinth.com/img/logo.svg',
+    img: 'https://via.placeholder.com/400x300/10B981/FFFFFF?text=Modrinth',
   },
 ]
 
@@ -101,7 +101,7 @@ export const BUSINESS_PROJECTS: Project[] = [
     desc: 'Professional game development and modding studio. Custom Minecraft modifications, web applications, and open-source solutions.',
     tags: ['Game Dev', 'Web Dev', 'Consulting'],
     href: 'https://arcticquests.dev',
-    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    img: 'https://via.placeholder.com/400x300/10B981/FFFFFF?text=ArcticQuests',
     featured: true,
   },
   {
@@ -109,7 +109,7 @@ export const BUSINESS_PROJECTS: Project[] = [
     desc: 'Bespoke Minecraft modifications tailored to your server or project needs. Fabric and Forge expertise.',
     tags: ['Java', 'Minecraft', 'Custom'],
     href: 'mailto:arcticquests.dev@gmail.com?subject=Custom%20Mod%20Inquiry',
-    img: 'https://fabricmc.net/assets/logo.png',
+    img: 'https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Custom+Mods',
     featured: true,
   },
   {
@@ -117,13 +117,13 @@ export const BUSINESS_PROJECTS: Project[] = [
     desc: 'Modern, responsive web applications built with React, TypeScript, and Tailwind. Fast, clean, and maintainable.',
     tags: ['React', 'TypeScript', 'Tailwind'],
     href: 'mailto:arcticquests.dev@gmail.com?subject=Web%20Dev%20Inquiry',
-    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    img: 'https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Web+Dev',
   },
   {
     title: 'Open Source Consulting',
     desc: 'Help with open-source projects, documentation, community management, and contribution workflows.',
     tags: ['OSS', 'Consulting', 'Documentation'],
     href: 'mailto:arcticquests.dev@gmail.com?subject=OSS%20Consulting',
-    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    img: 'https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Consulting',
   },
 ]

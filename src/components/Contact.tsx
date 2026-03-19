@@ -28,7 +28,7 @@ export default function Contact() {
     }, 800)
   }
 
-  const input = 'w-full clay-input px-4 py-3 font-mono text-sm text-text-primary placeholder-text-dim focus:outline-none transition-all'
+  const input = 'w-full clay-input px-4 py-3 font-mono text-sm text-text-primary dark:text-dark-text-primary placeholder-text-dim dark:placeholder-dark-text-dim focus:outline-none transition-all'
 
   const reveal = (d: number) => `transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} [transition-delay:${d}ms]`
 
@@ -39,8 +39,8 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto px-6">
         <div className={reveal(0) + ' mb-16'}>
           <p className="font-mono text-xs text-accent tracking-[0.2em] uppercase mb-3">// contact</p>
-          <h2 className="font-display text-6xl md:text-7xl text-text-primary tracking-wide">GET IN TOUCH</h2>
-          <p className="font-mono text-sm text-text-dim mt-3">Got a project, collab, or just want to chat?</p>
+          <h2 className="font-display text-6xl md:text-7xl text-text-primary dark:text-dark-text-primary tracking-wide">GET IN TOUCH</h2>
+          <p className="font-mono text-sm text-text-dim dark:text-dark-text-dim mt-3">Got a project, collab, or just want to chat?</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -59,25 +59,25 @@ export default function Contact() {
 
             <form onSubmit={submit} className="space-y-4">
               <div>
-                <label className="font-mono text-xs text-text-dim uppercase tracking-widest block mb-2">name</label>
+                <label className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest block mb-2">name</label>
                 <input type="text" name="name" value={form.name} onChange={change} placeholder="Your name" required className={input} />
               </div>
               <div>
-                <label className="font-mono text-xs text-text-dim uppercase tracking-widest block mb-2">email</label>
+                <label className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest block mb-2">email</label>
                 <input type="email" name="email" value={form.email} onChange={change} placeholder="you@example.com" required className={input} />
               </div>
               <div>
-                <label className="font-mono text-xs text-text-dim uppercase tracking-widest block mb-2">message</label>
+                <label className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest block mb-2">message</label>
                 <textarea name="message" value={form.message} onChange={change} placeholder="What's up?" rows={5} required className={input + ' resize-none'} />
               </div>
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="clay-button w-full flex items-center justify-center gap-2 py-3 font-mono font-bold text-sm text-text-primary transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="clay-button w-full flex items-center justify-center gap-2 py-3 font-mono font-bold text-sm text-text-primary dark:text-dark-text-primary transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'sending' ? (
                   <span className="flex items-center gap-2">
-                    <span className="w-3 h-3 border-2 border-text-primary/40 border-t-text-primary rounded-full animate-spin" />
+                    <span className="w-3 h-3 border-2 border-text-primary dark:border-dark-text-primary/40 border-t-text-primary dark:border-t-dark-text-primary rounded-full animate-spin" />
                     sending...
                   </span>
                 ) : (
@@ -89,22 +89,22 @@ export default function Contact() {
 
           {/* Right - connect links */}
           <div className={reveal(200)}>
-            <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-6">// or find me at</p>
+            <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest mb-6">// or find me at</p>
             <div className="space-y-3">
               {CONNECT.map(c => (
                 <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                  className="clay group flex items-center justify-between p-4 transition-all hover:shadow-clay-hover hover:-translate-y-1">
+                  className="glass-clay group flex items-center justify-between p-4 transition-all hover:shadow-glass-hover hover:-translate-y-1">
                   <div>
-                    <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-0.5">{c.label}</p>
-                    <p className="font-mono text-sm text-white group-hover:text-accent transition-colors">{c.value}</p>
+                    <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest mb-0.5">{c.label}</p>
+                    <p className="font-mono text-sm text-text-primary dark:text-dark-text-primary group-hover:text-accent transition-colors">{c.value}</p>
                   </div>
-                  <span className="text-text-dim group-hover:text-accent transition-colors text-sm">↗</span>
+                  <span className="text-text-dim dark:text-dark-text-dim group-hover:text-accent transition-colors text-sm">↗</span>
                 </a>
               ))}
             </div>
 
             {/* Discord note */}
-            <p className="font-mono text-xs text-text-dim mt-6 leading-relaxed">
+            <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim mt-6 leading-relaxed">
               Prefer Discord? Hit me at{' '}
               <a href="https://discord.com/users/730700346069876776" target="_blank" rel="noopener noreferrer"
                 className="text-accent hover:underline">Jaai.</a>

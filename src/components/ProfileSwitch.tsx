@@ -9,7 +9,7 @@ export default function ProfileSwitch() {
     <div className="fixed top-6 right-6 z-50">
       <button
         onClick={toggleProfile}
-        className="clay group flex items-center gap-3 px-4 py-2.5 hover:shadow-clay-hover transition-all hover:scale-105 active:scale-95"
+        className="glass-clay group flex items-center gap-3 px-4 py-2.5 hover:shadow-glass-hover transition-all hover:scale-105 active:scale-95"
         aria-label={`Switch to ${isPersonal ? 'business' : 'personal'} profile`}
       >
         {/* Icon container */}
@@ -37,8 +37,8 @@ export default function ProfileSwitch() {
           <span
             className={`absolute whitespace-nowrap font-mono text-xs transition-all duration-300 ${
               isPersonal
-                ? 'translate-y-0 opacity-100 text-white'
-                : '-translate-y-full opacity-0 text-text-dim'
+                ? 'translate-y-0 opacity-100 text-text-primary dark:text-dark-text-primary'
+                : '-translate-y-full opacity-0 text-text-dim dark:text-dark-text-dim'
             }`}
           >
             Personal
@@ -46,8 +46,8 @@ export default function ProfileSwitch() {
           <span
             className={`absolute whitespace-nowrap font-mono text-xs transition-all duration-300 ${
               !isPersonal
-                ? 'translate-y-0 opacity-100 text-white'
-                : 'translate-y-full opacity-0 text-text-dim'
+                ? 'translate-y-0 opacity-100 text-text-primary dark:text-dark-text-primary'
+                : 'translate-y-full opacity-0 text-text-dim dark:text-dark-text-dim'
             }`}
           >
             Business

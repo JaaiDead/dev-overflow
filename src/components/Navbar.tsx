@@ -27,13 +27,13 @@ export default function Navbar() {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-xl' : ''}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bg/80 dark:bg-dark-bg/80 backdrop-blur-xl' : ''}`}>
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <button onClick={() => go('home')} className="flex items-center gap-2 group">
-          <div className="clay-sm w-8 h-8 flex items-center justify-center font-mono text-accent text-sm font-bold group-hover:shadow-clay-accent transition-all">J</div>
-          <span className="font-mono text-xs text-text-dim group-hover:text-accent transition-colors">jaai.dev</span>
+          <div className="glass-sm w-8 h-8 flex items-center justify-center font-mono text-accent text-sm font-bold group-hover:shadow-glass-accent transition-all">J</div>
+          <span className="font-mono text-xs text-text-dim dark:text-dark-text-dim group-hover:text-accent transition-colors">jaai.dev</span>
         </button>
 
         {/* Desktop nav */}
@@ -45,7 +45,7 @@ export default function Navbar() {
                 className={`px-4 py-1.5 font-mono text-xs rounded-lg transition-all ${
                   active === l.href
                     ? 'text-accent clay-accent'
-                    : 'text-text-dim hover:text-white'
+                    : 'text-text-dim dark:text-dark-text-dim hover:text-text-primary dark:hover:text-dark-text-primary'
                 }`}
               >
                 {active === l.href && <span className="mr-1 text-accent">›</span>}
@@ -56,20 +56,20 @@ export default function Navbar() {
         </ul>
 
         <a href="https://github.com/JaaiDead" target="_blank" rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-1.5 font-mono text-xs text-accent clay-accent px-3 py-1.5 transition-all hover:shadow-clay-accent-lg">
+          className="hidden md:flex items-center gap-1.5 font-mono text-xs text-accent glass-accent px-3 py-1.5 transition-all hover:shadow-glass-accent-lg">
           GitHub ↗
         </a>
 
-        <button className="md:hidden text-text-dim hover:text-white" onClick={() => setOpen(o => !o)}>
+        <button className="md:hidden text-text-dim dark:text-dark-text-dim hover:text-text-primary dark:hover:text-dark-text-primary" onClick={() => setOpen(o => !o)}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {open && (
-        <div className="md:hidden clay-lg px-6 py-6 mx-4 mb-4 flex flex-col gap-4">
+        <div className="md:hidden glass-lg px-6 py-6 mx-4 mb-4 flex flex-col gap-4">
           {NAV_LINKS.map(l => (
             <button key={l.href} onClick={() => go(l.href)}
-              className={`text-left font-mono text-sm ${active === l.href ? 'text-accent' : 'text-text-dim'}`}>
+              className={`text-left font-mono text-sm ${active === l.href ? 'text-accent' : 'text-text-dim dark:text-dark-text-dim'}`}>
               {l.label}
             </button>
           ))}

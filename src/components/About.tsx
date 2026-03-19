@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useReveal } from '../hooks'
 import { SKILLS, STATS } from '../data'
 import { useProfile } from '../contexts/ProfileContext'
-import FactsCarousel from './FactsCarousel'
+import ScrollingRibbon from './ScrollingRibbon'
 
 const catLabel: Record<string, string> = {
   lang: 'language', fw: 'framework', tool: 'tool', learning: 'learning ↗',
@@ -10,11 +10,11 @@ const catLabel: Record<string, string> = {
 const catColor: Record<string, string> = {
   lang: 'text-accent border-accent/30 bg-accent/[0.06]',
   fw: 'text-purple border-purple/30 bg-purple/[0.06]',
-  tool: 'text-white/40 border-white/10 bg-white/[0.03]',
+  tool: 'text-cyan border-cyan/30 bg-cyan/[0.06]',
   learning: 'text-yellow-400/70 border-yellow-400/20 bg-yellow-400/[0.04]',
 }
 const barColor: Record<string, string> = {
-  lang: 'bg-accent', fw: 'bg-purple', tool: 'bg-white/30', learning: 'bg-yellow-400/60',
+  lang: 'bg-accent', fw: 'bg-purple', tool: 'bg-cyan', learning: 'bg-yellow-400/60',
 }
 
 function StatCount({ value, suffix, label, run }: { value: number; suffix: string; label: string; run: boolean }) {
@@ -32,7 +32,7 @@ function StatCount({ value, suffix, label, run }: { value: number; suffix: strin
   return (
     <div className="text-center">
       <div className="font-display text-5xl text-accent leading-none mb-1">{run ? n : 0}{suffix}</div>
-      <div className="font-mono text-xs text-text-dim uppercase tracking-widest">{label}</div>
+      <div className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest">{label}</div>
     </div>
   )
 }
@@ -43,10 +43,10 @@ export default function About() {
   const isPersonal = profile === 'personal'
   
   const personalFacts = [
-    { icon: '♟', text: 'Chess enthusiast - always up for a match' },
     { icon: '🧩', text: 'Puzzle addict (the harder the better)' },
     { icon: '⛏', text: 'Minecraft modder at heart' },
     { icon: '💡', text: "If it's interesting, I'll build it" },
+    { icon: '🎮', text: 'Gaming enthusiast and problem solver' },
   ]
 
   const businessFacts = [
@@ -70,7 +70,7 @@ export default function About() {
   
         <div className={reveal(0) + ' mb-16'}>
           <p className="font-mono text-xs text-accent tracking-[0.2em] uppercase mb-3">// about</p>
-          <h2 className="font-display text-6xl md:text-7xl text-white tracking-wide">WHO AM I</h2>
+          <h2 className="font-display text-6xl md:text-7xl text-text-primary dark:text-dark-text-primary tracking-wide">WHO AM I</h2>
         </div>
 
         <div className="grid md:grid-cols-5 gap-12">
@@ -79,31 +79,31 @@ export default function About() {
             <div className={reveal(100)}>
               {isPersonal ? (
                 <>
-                  <p className="text-text-dim leading-relaxed mb-4">
-                    I'm <span className="text-text-primary font-medium">Jaai</span> - a developer and student
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed mb-4">
+                    I'm <span className="text-text-primary dark:text-dark-text-primary font-medium">Jaai</span> - a developer and student
                     passionate about building clean, creative software. Started with shaping Minecraft
                     worlds, grew into full-stack web dev.
                   </p>
-                  <p className="text-text-dim leading-relaxed mb-4">
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed mb-4">
                     Founder of <span className="text-accent">ArcticQuests</span>, Fabric community
                     contributor, open-source advocate.
                   </p>
-                  <p className="text-text-dim leading-relaxed">
-                    Off-keyboard: chess (always), puzzles, and anything that makes me think.
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed">
+                    Off-keyboard: puzzles, gaming, and anything that makes me think.
                   </p>
                 </>
               ) : (
                 <>
-                  <p className="text-text-dim leading-relaxed mb-4">
-                    <span className="text-text-primary font-medium">ArcticQuests</span> is a professional game development 
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed mb-4">
+                    <span className="text-text-primary dark:text-dark-text-primary font-medium">ArcticQuests</span> is a professional game development 
                     and modding studio founded by Jaai. We specialize in creating custom Minecraft modifications, 
                     modern web applications, and open-source solutions.
                   </p>
-                  <p className="text-text-dim leading-relaxed mb-4">
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed mb-4">
                     With years of experience in the <span className="text-accent">Fabric modding ecosystem</span> and 
                     modern web technologies, we deliver high-quality, maintainable code that exceeds expectations.
                   </p>
-                  <p className="text-text-dim leading-relaxed">
+                  <p className="text-text-dim dark:text-dark-text-dim leading-relaxed">
                     From custom server mods to full-stack web apps - we turn your ideas into reality.
                   </p>
                 </>
@@ -119,30 +119,22 @@ export default function About() {
 
             {/* GitHub Stats Card */}
             <div className={reveal(175) + ' p-5 glass-lg hover:shadow-clay-hover transition-all group'}>
-              <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-4">// GitHub Activity</p>
+              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest mb-4">// GitHub Activity</p>
               <a href="https://github.com/JaaiDead" target="_blank" rel="noopener noreferrer" className="block">
                 <img 
-                  src="https://github-readme-stats.vercel.app/api?username=JaaiDead&show_icons=true&theme=default&hide_border=true&bg_color=00000000&title_color=0EA5E9&icon_color=0EA5E9&text_color=6C757D&ring_color=0EA5E9" 
+                  src="https://github-readme-stats.vercel.app/api?username=JaaiDead&show_icons=true&theme=default&hide_border=true&bg_color=00000000&title_color=10B981&icon_color=10B981&text_color=6C757D&ring_color=10B981" 
                   alt="GitHub Stats" 
                   className="w-full rounded opacity-90 group-hover:opacity-100 transition-opacity"
                   loading="lazy"
                 />
               </a>
             </div>
-
-            {/* Facts Carousel */}
-            <div className={reveal(200)}>
-              <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-3">
-                // {isPersonal ? 'fun facts' : 'why choose us'}
-              </p>
-              <FactsCarousel items={isPersonal ? personalFacts : businessFacts} />
-            </div>
           </div>
 
           {/* Right col - skill bars */}
           <div className="md:col-span-3">
             <div className={reveal(120) + ' mb-6'}>
-              <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-5">// skills & tools</p>
+              <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest mb-5">// skills & tools</p>
               <div className="space-y-4">
                 {SKILLS.map((s, i) => (
                   <div key={s.name}
@@ -151,14 +143,14 @@ export default function About() {
                   >
                     <div className="flex items-center justify-between mb-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-sm text-text-primary">{s.name}</span>
+                        <span className="font-mono text-sm text-text-primary dark:text-dark-text-primary">{s.name}</span>
                         <span className={`font-mono text-[9px] px-1.5 py-0.5 rounded border ${catColor[s.cat]}`}>
                           {catLabel[s.cat]}
                         </span>
                       </div>
-                      <span className="font-mono text-xs text-text-dim">{s.level}%</span>
+                      <span className="font-mono text-xs text-text-dim dark:text-dark-text-dim">{s.level}%</span>
                     </div>
-                    <div className="h-1 bg-border rounded-full overflow-hidden shadow-clay-inner">
+                    <div className="h-1 bg-border dark:border-dark-border rounded-full overflow-hidden shadow-clay-inner">
                       <div
                         className={`h-full rounded-full transition-all duration-1000 ${barColor[s.cat]}`}
                         style={{ 
@@ -173,6 +165,14 @@ export default function About() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Scrolling Ribbon - Full Width */}
+        <div className={reveal(250) + ' mt-16'}>
+          <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim uppercase tracking-widest mb-4 text-center">
+            // {isPersonal ? 'fun facts' : 'why choose us'}
+          </p>
+          <ScrollingRibbon items={isPersonal ? personalFacts : businessFacts} speed={25} />
         </div>
       </div>
 

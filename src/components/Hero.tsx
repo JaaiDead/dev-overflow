@@ -1,4 +1,3 @@
-import { useTypewriter } from '../hooks'
 import { ArrowDown } from 'lucide-react'
 import { ROLES, BUSINESS_ROLES } from '../data'
 import { useProfile } from '../contexts/ProfileContext'
@@ -6,7 +5,7 @@ import { useProfile } from '../contexts/ProfileContext'
 export default function Hero() {
   const { profile } = useProfile()
   const isPersonal = profile === 'personal'
-  const role = useTypewriter(isPersonal ? ROLES : BUSINESS_ROLES)
+  const role = isPersonal ? ROLES[0] : BUSINESS_ROLES[0] // Just display first role statically
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -45,8 +44,8 @@ export default function Hero() {
         {/* Terminal prompt */}
         <div className="inline-flex items-center gap-2 font-mono text-xs text-accent/80 mb-6 glass px-4 py-2">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-clay-accent" />
-          <span className="text-text-primary">jaai@dev:~$</span>
-          <span className="text-text-dim">whoami</span>
+          <span className="text-text-primary dark:text-dark-text-primary">jaai@dev:~$</span>
+          <span className="text-text-dim dark:text-dark-text-dim">whoami</span>
         </div>
 
         {/* Name - massive Bebas with gradient */}
@@ -54,19 +53,18 @@ export default function Hero() {
           {isPersonal ? 'JAAI' : 'ARCTICQUESTS'}
         </h1>
 
-        {/* Typewriter role */}
+        {/* Role subtitle */}
         <div className="h-8 flex items-center justify-center mb-8">
-          <p className="font-mono text-base md:text-lg text-text-dim">
+          <p className="font-mono text-base md:text-lg text-text-dim dark:text-dark-text-dim">
             <span className="text-accent">›</span>{' '}
-            <span className="text-text-primary">{role}</span>
-            <span className="animate-cursor-blink text-accent ml-0.5">█</span>
+            <span className="text-text-primary dark:text-dark-text-primary">{role}</span>
           </p>
         </div>
 
         {/* Bio one-liner */}
-        <p className="font-body text-text-dim max-w-lg mx-auto mb-10 text-base leading-relaxed">
+        <p className="font-body text-text-dim dark:text-dark-text-dim max-w-lg mx-auto mb-10 text-base leading-relaxed">
           {isPersonal 
-            ? 'Building clean, creative software - Minecraft mods, web apps, open source. Based in code, fuelled by chess puzzles.'
+            ? 'Building clean, creative software - Minecraft mods, web apps, open source. Based in code, fuelled by curiosity.'
             : 'Professional game development and modding studio. Custom Minecraft mods, web applications, and open-source solutions tailored to your needs.'
           }
         </p>
@@ -81,7 +79,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="glass px-6 py-3 text-text-primary font-mono text-sm hover:text-accent hover:shadow-clay-hover transition-all hover:scale-105"
+            className="glass px-6 py-3 text-text-primary dark:text-dark-text-primary font-mono text-sm hover:text-accent hover:shadow-clay-hover transition-all hover:scale-105"
           >
             ./contact-me
           </button>
@@ -95,9 +93,9 @@ export default function Hero() {
             { label: 'email', href: 'mailto:arcticquests.dev@gmail.com' },
           ].map((l, i) => (
             <span key={l.label} className="flex items-center gap-6">
-              {i > 0 && <span className="text-border">·</span>}
+              {i > 0 && <span className="text-border dark:border-dark-border">·</span>}
               <a href={l.href} target="_blank" rel="noopener noreferrer"
-                className="font-mono text-xs text-text-dim hover:text-accent transition-colors">
+                className="font-mono text-xs text-text-dim dark:text-dark-text-dim hover:text-accent transition-colors">
                 {l.label} ↗
               </a>
             </span>
@@ -108,7 +106,7 @@ export default function Hero() {
       {/* Scroll arrow */}
       <button
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted hover:text-accent transition-colors animate-float"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted dark:text-dark-text-muted hover:text-accent transition-colors animate-float"
       >
         <ArrowDown size={18} />
       </button>

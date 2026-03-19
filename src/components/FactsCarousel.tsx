@@ -44,14 +44,14 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
           <>
             <button
               onClick={prev}
-              className="absolute left-2 z-10 w-8 h-8 glass-sm rounded-full flex items-center justify-center text-text-dim hover:text-accent transition-all hover:scale-110"
+              className="absolute left-2 z-10 w-8 h-8 glass-sm rounded-full flex items-center justify-center text-text-dim dark:text-dark-text-dim hover:text-accent transition-all hover:scale-110"
               aria-label="Previous"
             >
               <ChevronLeft size={16} />
             </button>
             <button
               onClick={next}
-              className="absolute right-2 z-10 w-8 h-8 glass-sm rounded-full flex items-center justify-center text-text-dim hover:text-accent transition-all hover:scale-110"
+              className="absolute right-2 z-10 w-8 h-8 glass-sm rounded-full flex items-center justify-center text-text-dim dark:text-dark-text-dim hover:text-accent transition-all hover:scale-110"
               aria-label="Next"
             >
               <ChevronRight size={16} />
@@ -66,7 +66,7 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
           </span>
           <span 
             key={current}
-            className="font-mono text-sm text-text-dim animate-slide-carousel"
+            className="font-mono text-sm text-text-dim dark:text-dark-text-dim animate-slide-carousel"
           >
             {items[current].text}
           </span>
@@ -83,7 +83,7 @@ export default function FactsCarousel({ items, autoPlayInterval = 4000 }: FactsC
               className={`transition-all ${
                 index === current
                   ? 'w-8 h-2 bg-accent rounded-full'
-                  : 'w-2 h-2 bg-text-muted rounded-full hover:bg-text-dim'
+                  : 'w-2 h-2 bg-text-muted dark:bg-dark-text-muted rounded-full hover:bg-text-dim dark:hover:bg-dark-text-dim'
               }`}
               aria-label={`Go to item ${index + 1}`}
             />
