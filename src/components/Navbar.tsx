@@ -27,12 +27,12 @@ export default function Navbar() {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-xl border-b border-white/[0.05]' : ''}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bg/80 backdrop-blur-xl' : ''}`}>
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <button onClick={() => go('home')} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 border border-accent rounded flex items-center justify-center font-mono text-accent text-sm font-bold group-hover:bg-accent group-hover:text-bg transition-all">J</div>
+          <div className="clay-sm w-8 h-8 flex items-center justify-center font-mono text-accent text-sm font-bold group-hover:shadow-clay-accent transition-all">J</div>
           <span className="font-mono text-xs text-text-dim group-hover:text-accent transition-colors">jaai.dev</span>
         </button>
 
@@ -42,9 +42,9 @@ export default function Navbar() {
             <li key={l.href}>
               <button
                 onClick={() => go(l.href)}
-                className={`px-4 py-1.5 font-mono text-xs rounded transition-all ${
+                className={`px-4 py-1.5 font-mono text-xs rounded-lg transition-all ${
                   active === l.href
-                    ? 'text-accent bg-accent/10'
+                    ? 'text-accent clay-accent'
                     : 'text-text-dim hover:text-white'
                 }`}
               >
@@ -56,7 +56,7 @@ export default function Navbar() {
         </ul>
 
         <a href="https://github.com/JaaiDead" target="_blank" rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-1.5 font-mono text-xs text-accent border border-accent/40 hover:border-accent hover:bg-accent/10 px-3 py-1.5 rounded transition-all">
+          className="hidden md:flex items-center gap-1.5 font-mono text-xs text-accent clay-accent px-3 py-1.5 transition-all hover:shadow-clay-accent-lg">
           GitHub ↗
         </a>
 
@@ -66,7 +66,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden bg-surface border-b border-white/[0.06] px-6 py-6 flex flex-col gap-4">
+        <div className="md:hidden clay-lg px-6 py-6 mx-4 mb-4 flex flex-col gap-4">
           {NAV_LINKS.map(l => (
             <button key={l.href} onClick={() => go(l.href)}
               className={`text-left font-mono text-sm ${active === l.href ? 'text-accent' : 'text-text-dim'}`}>

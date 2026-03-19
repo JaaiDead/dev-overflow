@@ -28,7 +28,7 @@ export default function Contact() {
     }, 800)
   }
 
-  const input = 'w-full bg-bg border border-white/[0.08] rounded-lg px-4 py-3 font-mono text-sm text-white placeholder-text-dim focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition-all hover:border-white/[0.15]'
+  const input = 'w-full clay-input px-4 py-3 font-mono text-sm text-text-primary placeholder-text-dim focus:outline-none transition-all'
 
   const reveal = (d: number) => `transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} [transition-delay:${d}ms]`
 
@@ -39,7 +39,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto px-6">
         <div className={reveal(0) + ' mb-16'}>
           <p className="font-mono text-xs text-accent tracking-[0.2em] uppercase mb-3">// contact</p>
-          <h2 className="font-display text-6xl md:text-7xl text-white tracking-wide">GET IN TOUCH</h2>
+          <h2 className="font-display text-6xl md:text-7xl text-text-primary tracking-wide">GET IN TOUCH</h2>
           <p className="font-mono text-sm text-text-dim mt-3">Got a project, collab, or just want to chat?</p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Contact() {
               </div>
             )}
             {status === 'err' && (
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/20 font-mono text-xs text-red-400 mb-5">
+              <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/20 font-mono text-xs text-red-500 mb-5">
                 <AlertCircle size={14} /> Invalid email. Please try again.
               </div>
             )}
@@ -73,11 +73,11 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full flex items-center justify-center gap-2 py-3 bg-accent hover:bg-accent-dim text-bg font-mono font-bold text-sm rounded-lg transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed glow-accent"
+                className="clay-button w-full flex items-center justify-center gap-2 py-3 font-mono font-bold text-sm text-text-primary transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'sending' ? (
                   <span className="flex items-center gap-2">
-                    <span className="w-3 h-3 border-2 border-bg/40 border-t-bg rounded-full animate-spin" />
+                    <span className="w-3 h-3 border-2 border-text-primary/40 border-t-text-primary rounded-full animate-spin" />
                     sending...
                   </span>
                 ) : (
@@ -87,13 +87,13 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Right — connect links */}
+          {/* Right - connect links */}
           <div className={reveal(200)}>
             <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-6">// or find me at</p>
             <div className="space-y-3">
               {CONNECT.map(c => (
                 <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-4 bg-card card-border rounded-xl transition-all">
+                  className="clay group flex items-center justify-between p-4 transition-all hover:shadow-clay-hover hover:-translate-y-1">
                   <div>
                     <p className="font-mono text-xs text-text-dim uppercase tracking-widest mb-0.5">{c.label}</p>
                     <p className="font-mono text-sm text-white group-hover:text-accent transition-colors">{c.value}</p>

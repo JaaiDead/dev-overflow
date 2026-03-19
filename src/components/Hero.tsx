@@ -1,9 +1,12 @@
 import { useTypewriter } from '../hooks'
 import { ArrowDown } from 'lucide-react'
-import { ROLES } from '../data'
+import { ROLES, BUSINESS_ROLES } from '../data'
+import { useProfile } from '../contexts/ProfileContext'
 
 export default function Hero() {
-  const role = useTypewriter(ROLES)
+  const { profile } = useProfile()
+  const isPersonal = profile === 'personal'
+  const role = useTypewriter(isPersonal ? ROLES : BUSINESS_ROLES)
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -40,43 +43,45 @@ export default function Hero() {
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
 
         {/* Terminal prompt */}
-        <div className="inline-flex items-center gap-2 font-mono text-xs text-accent/70 mb-6 border border-accent/20 rounded px-3 py-1.5 bg-accent/[0.04]">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-          <span>jaai@dev:~$</span>
-          <span className="text-white/40">whoami</span>
+        <div className="inline-flex items-center gap-2 font-mono text-xs text-accent/80 mb-6 glass px-4 py-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-clay-accent" />
+          <span className="text-text-primary">jaai@dev:~$</span>
+          <span className="text-text-dim">whoami</span>
         </div>
 
-        {/* Name — massive Bebas with gradient */}
+        {/* Name - massive Bebas with gradient */}
         <h1 className="font-display text-[clamp(80px,16vw,160px)] leading-none tracking-wide mb-2 text-gradient-accent animate-glow-pulse">
-          JAAI
+          {isPersonal ? 'JAAI' : 'ARCTICQUESTS'}
         </h1>
 
         {/* Typewriter role */}
         <div className="h-8 flex items-center justify-center mb-8">
           <p className="font-mono text-base md:text-lg text-text-dim">
             <span className="text-accent">›</span>{' '}
-            <span className="text-white">{role}</span>
+            <span className="text-text-primary">{role}</span>
             <span className="animate-cursor-blink text-accent ml-0.5">█</span>
           </p>
         </div>
 
         {/* Bio one-liner */}
         <p className="font-body text-text-dim max-w-lg mx-auto mb-10 text-base leading-relaxed">
-          Building clean, creative software — Minecraft mods, web apps, open source.
-          Based in code, fuelled by chess puzzles.
+          {isPersonal 
+            ? 'Building clean, creative software - Minecraft mods, web apps, open source. Based in code, fuelled by chess puzzles.'
+            : 'Professional game development and modding studio. Custom Minecraft mods, web applications, and open-source solutions tailored to your needs.'
+          }
         </p>
 
         {/* CTAs */}
         <div className="flex flex-wrap justify-center gap-3">
           <button
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 bg-accent text-bg font-mono font-bold text-sm rounded hover:bg-accent-hover transition-all hover:scale-110 active:scale-95 glow-strong shadow-lg shadow-accent/20"
+            className="clay-button px-6 py-3 text-white font-mono font-bold text-sm hover:scale-105 active:scale-95 transition-all"
           >
             ./view-projects
           </button>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 border-2 border-accent/30 text-text-dim font-mono text-sm rounded hover:border-accent hover:text-white hover:bg-accent/5 transition-all hover:scale-105"
+            className="glass px-6 py-3 text-text-primary font-mono text-sm hover:text-accent hover:shadow-clay-hover transition-all hover:scale-105"
           >
             ./contact-me
           </button>
@@ -90,7 +95,7 @@ export default function Hero() {
             { label: 'email', href: 'mailto:arcticquests.dev@gmail.com' },
           ].map((l, i) => (
             <span key={l.label} className="flex items-center gap-6">
-              {i > 0 && <span className="text-white/10">·</span>}
+              {i > 0 && <span className="text-border">·</span>}
               <a href={l.href} target="_blank" rel="noopener noreferrer"
                 className="font-mono text-xs text-text-dim hover:text-accent transition-colors">
                 {l.label} ↗
@@ -103,7 +108,7 @@ export default function Hero() {
       {/* Scroll arrow */}
       <button
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20 hover:text-accent transition-colors animate-float"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted hover:text-accent transition-colors animate-float"
       >
         <ArrowDown size={18} />
       </button>

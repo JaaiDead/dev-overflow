@@ -1,3 +1,5 @@
+export type ProfileMode = 'personal' | 'business'
+
 export const NAV_LINKS = [
   { label: 'home', href: 'home' },
   { label: 'about', href: 'about' },
@@ -5,7 +7,11 @@ export const NAV_LINKS = [
   { label: 'contact', href: 'contact' },
 ]
 
+// Personal Profile Data
 export const ROLES = ['Developer', 'Minecraft Modder', 'Open Sourcerer', 'Chess Player']
+
+// Business Profile Data
+export const BUSINESS_ROLES = ['Game Development', 'Custom Mods', 'Web Development', 'Open Source Solutions']
 
 export const SKILLS = [
   { name: 'Java',       level: 90, cat: 'lang' },
@@ -15,7 +21,8 @@ export const SKILLS = [
   { name: 'Next.js',    level: 40, cat: 'learning' },
   { name: 'TypeScript', level: 45, cat: 'learning' },
   { name: 'Git',        level: 80, cat: 'tool' },
-  { name: 'Fabric API', level: 88, cat: 'tool' },
+  { name: 'VS Code',    level: 85, cat: 'tool' },
+  {name: 'IntelliJ',    level: 90, cat: 'tool' },
 ]
 
 export const STATS = [
@@ -85,4 +92,38 @@ export const CONNECT = [
   { label: 'Email',    value: 'arcticquests.dev@gmail.com',    href: 'mailto:arcticquests.dev@gmail.com' },
   { label: 'Discord',  value: 'Jaai.',                         href: 'https://discord.com/users/730700346069876776' },
   { label: 'Modrinth', value: 'JaaiDead',                      href: 'https://modrinth.com/user/JaaiDead' },
+]
+
+// Business Profile Projects
+export const BUSINESS_PROJECTS: Project[] = [
+  {
+    title: 'ArcticQuests Studio',
+    desc: 'Professional game development and modding studio. Custom Minecraft modifications, web applications, and open-source solutions.',
+    tags: ['Game Dev', 'Web Dev', 'Consulting'],
+    href: 'https://arcticquests.dev',
+    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+    featured: true,
+  },
+  {
+    title: 'Custom Minecraft Mods',
+    desc: 'Bespoke Minecraft modifications tailored to your server or project needs. Fabric and Forge expertise.',
+    tags: ['Java', 'Minecraft', 'Custom'],
+    href: 'mailto:arcticquests.dev@gmail.com?subject=Custom%20Mod%20Inquiry',
+    img: 'https://fabricmc.net/assets/logo.png',
+    featured: true,
+  },
+  {
+    title: 'Web Development Services',
+    desc: 'Modern, responsive web applications built with React, TypeScript, and Tailwind. Fast, clean, and maintainable.',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+    href: 'mailto:arcticquests.dev@gmail.com?subject=Web%20Dev%20Inquiry',
+    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+  },
+  {
+    title: 'Open Source Consulting',
+    desc: 'Help with open-source projects, documentation, community management, and contribution workflows.',
+    tags: ['OSS', 'Consulting', 'Documentation'],
+    href: 'mailto:arcticquests.dev@gmail.com?subject=OSS%20Consulting',
+    img: 'https://raw.githubusercontent.com/JaaiDead/JaaiDead/main/github-mark.png',
+  },
 ]

@@ -2,18 +2,18 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative border-t border-white/[0.06] py-10">
+    <footer className="relative py-10">
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
 
         <div className="flex items-center gap-3">
-          <div className="w-7 h-7 border border-accent/40 rounded flex items-center justify-center font-mono text-accent text-xs font-bold">
+          <div className="clay-sm w-7 h-7 flex items-center justify-center font-mono text-accent text-xs font-bold">
             J
           </div>
           <span className="font-mono text-xs text-text-dim">jaai.dev</span>
         </div>
 
         <p className="font-mono text-xs text-text-dim text-center">
-          <span className="text-accent">©</span> {year} Jaai —{' '}
+          <span className="text-accent">©</span> {year} Jaai -{' '}
           built with{' '}
           <a href="https://viteplus.dev" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Vite+</a>
           {' · '}
