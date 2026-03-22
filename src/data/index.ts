@@ -4,6 +4,7 @@ export const NAV_LINKS = [
   { label: "home", href: "home" },
   { label: "about", href: "about" },
   { label: "projects", href: "projects" },
+  { label: "reviews", href: "reviews" },
   { label: "contact", href: "contact" },
 ];
 
@@ -31,9 +32,15 @@ export const SKILLS = [
 ];
 
 export const STATS = [
-  { value: 3, suffix: "+", label: "Years coding" },
+  { value: 4, suffix: "+", label: "Years coding" },
   { value: 15, suffix: "+", label: "Projects shipped" },
   { value: 60, suffix: "+", label: "GitHub repos" },
+];
+
+export const MOD_STATS = [
+  { value: 111.7, suffix: "K", label: "Modrinth downloads" },
+  { value: 11.3, suffix: "K", label: "CurseForge downloads" },
+  { value: 12, suffix: "", label: "Published mods" },
 ];
 
 export interface Project {
@@ -62,20 +69,7 @@ export const PROJECTS: Project[] = [
     icon: "Sparkles",
     featured: true,
   },
-  {
-    title: "Marvel-Refabricated",
-    desc: "A Minecraft mod bringing Marvel superpowers to the Fabric modloader. 2 stars and counting!",
-    tags: ["Java", "Fabric", "Gaming"],
-    href: "https://github.com/JaaiDead/Marvel-Refabricated",
-    icon: "Zap",
-  },
-  {
-    title: "PerfectParity Neo",
-    desc: "Bug reporting page for PerfectParity mod. Active community management and issue tracking.",
-    tags: ["Community", "Bug Tracking", "Open Source"],
-    href: "https://github.com/JaaiDead/PerfectParityNeos",
-    icon: "Bug",
-  },
+
   {
     title: "Fabric Docs Contributor",
     desc: "Contributing to FabricMC's official documentation to help new modders learn the ecosystem.",
@@ -85,10 +79,17 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Modrinth Profile",
-    desc: "Collection of published and maintained mods on Modrinth, reaching thousands of downloads.",
+    desc: "12 published projects with 111.7K downloads. Active author for 4 years, member since 11 months ago.",
     tags: ["Portfolio", "Mods", "Community"],
     href: "https://modrinth.com/user/JaaiDead",
     icon: "Package",
+  },
+  {
+    title: "CurseForge Profile",
+    desc: "Author with 2 followers and 11.3K downloads. Active member since 11 months ago.",
+    tags: ["Portfolio", "Mods", "CurseForge"],
+    href: "https://www.curseforge.com/members/jaaidead/projects",
+    icon: "Zap",
   },
 ];
 

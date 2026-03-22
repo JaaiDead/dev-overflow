@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { ROLES, BUSINESS_ROLES } from "../data";
 import { useProfile } from "../contexts/ProfileContext";
+import InteractiveTerminal from "./InteractiveTerminal";
 
 export default function Hero() {
   const { profile } = useProfile();
@@ -115,6 +116,10 @@ export default function Hero() {
               </a>
             </span>
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-start pl-2 md:pl-6">
+          <InteractiveTerminal />
         </div>
       </div>
 
