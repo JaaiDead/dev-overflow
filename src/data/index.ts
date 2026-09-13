@@ -24,7 +24,7 @@ export function createGmailComposeUrl(
 export const GMAIL_COMPOSE_URL = createGmailComposeUrl();
 
 export const TAGLINE = {
-  personal: "Modder",
+  personal: "Developer & Modder",
   business: "Game Development · Custom Mods · Web Development",
 };
 
