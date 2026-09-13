@@ -26,14 +26,23 @@ export default function ParticleField({ className = "" }: { className?: string }
     if (!canvas || !parent || !ctx) return;
 
     const isCoarse = window.matchMedia("(pointer: coarse)").matches;
-    const count = isCoarse ? 18 : 42;
+    const prefersReducedData = window.matchMedia("(prefers-reduced-data: reduce)").matches;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    const isLowPower =
+      prefersReducedData ||
+      connection?.saveData === true ||
+      (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+    const count = isLowPower ? 12 : isCoarse ? 18 : 42;
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const frameInterval = isLowPower ? 1000 / 24 : 1000 / 30;
 
     let width = 0;
     let height = 0;
     let particles: Particle[] = [];
     let rafId = 0;
     let running = true;
+    let lastFrame = 0;
 
     function resize() {
       width = parent!.clientWidth;
@@ -49,14 +58,19 @@ export default function ParticleField({ className = "" }: { className?: string }
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.12,
-        vy: (Math.random() - 0.5) * 0.12,
+        vx: (Math.random() - 0.5) * (isLowPower ? 0.28 : 0.22),
+        vy: (Math.random() - 0.5) * (isLowPower ? 0.28 : 0.22),
         r: Math.random() * 1.3 + 0.5,
       }));
     }
 
-    function tick() {
+    function tick(timestamp: number) {
       if (!running) return;
+      if (timestamp - lastFrame < frameInterval) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+      lastFrame = timestamp;
       ctx!.clearRect(0, 0, width, height);
       ctx!.fillStyle = "rgba(107, 63, 82, 0.45)";
       for (const p of particles) {
