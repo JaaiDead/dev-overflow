@@ -30,9 +30,11 @@ export default function PrivacyPolicy() {
 
         <div className="glass rounded-3xl p-6 font-body text-sm leading-relaxed text-text-dim dark:text-dark-text-dim md:p-8">
           <p className="mb-6">
-            This is a static portfolio site. It has no backend server, user accounts, analytics,
-            tracking scripts, or cookies. Nothing you do here is collected or stored on
-            infrastructure operated by this site.
+            This is a static portfolio site with no user accounts or site-operated backend. The site
+            is hosted on GitHub Pages and proxied through Cloudflare, which provides Web Analytics.
+            Cloudflare reports aggregate page views, visits, performance metrics including Core Web
+            Vitals, and related breakdowns such as URL, browser, operating system, and country. The
+            site does not use its own advertising or analytics service.
           </p>
 
           <div className="space-y-6">
@@ -53,9 +55,19 @@ export default function PrivacyPolicy() {
                 Third-party services
               </h2>
               <p>
-                The site fetches public project data from the Modrinth API and links to GitHub,
-                Modrinth, CurseForge, Discord, and Gmail. Those services have their own privacy
-                policies and handle visits outside this site.
+                GitHub Pages hosts the site, and Cloudflare proxies traffic to it and processes Web
+                Analytics data. See the{" "}
+                <a
+                  href="https://www.cloudflare.com/privacypolicy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline dark:text-dark-primary"
+                >
+                  Cloudflare Privacy Policy
+                </a>
+                . The site also fetches public project data from the Modrinth API and links to
+                GitHub, Modrinth, CurseForge, Discord, and Gmail. Those services have their own
+                privacy policies and handle visits outside this site.
               </p>
             </section>
 
