@@ -1,6 +1,6 @@
 # Jaai and ArcticQuests
 
-> Portfolio for Jaai, a Minecraft mod contributor and software developer.
+> Portfolio for Jaai, a modder.
 
 ## About
 
@@ -19,5 +19,5 @@ web development, and ArcticQuests studio work.
 
 ## Keywords
 
-Minecraft mod developer, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests,
+Modder, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests,
 SplashOminous, Items Displayed, Nether's Exorcism, The Bygone, open source, web development.

@@ -17,7 +17,7 @@ function AppContent() {
   const { profile } = useProfile();
 
   useEffect(() => {
-    document.title = profile === "personal" ? "Jaai · Developer" : "ArcticQuests · Game Dev Studio";
+    document.title = profile === "personal" ? "Jaai · Modder" : "ArcticQuests · Game Dev Studio";
   }, [profile]);
 
   return (
