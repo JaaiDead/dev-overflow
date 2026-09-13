@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="mt-3 font-mono text-xs text-text-dim dark:text-dark-text-dim">
-            Last updated: September 13, 2026
+            Last updated: September 14, 2026
           </p>
         </header>
 
@@ -41,8 +41,10 @@ export default function PrivacyPolicy() {
                 Local storage
               </h2>
               <p>
-                The selected theme and portfolio profile are saved in your browser localStorage so
-                they persist between visits. This information stays on your device.
+                When no theme has been selected, the site reads your device's system color
+                preference to choose light or dark mode. The selected theme and portfolio profile
+                are saved in your browser localStorage so they persist between visits. This
+                information stays on your device.
               </p>
             </section>
 
