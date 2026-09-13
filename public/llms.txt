@@ -1,0 +1,23 @@
+# Jaai and ArcticQuests
+
+> Portfolio for Jaai, a Minecraft mod contributor and software developer.
+
+## About
+
+Jaai contributes to Minecraft projects with their teams and works primarily with Java,
+Fabric, and occasional Python tooling. The portfolio also covers open source documentation,
+web development, and ArcticQuests studio work.
+
+## Project sources
+
+- [Projects](https://arcticquests.dev/#projects): Project contributions and studio work.
+- [Modrinth](https://modrinth.com/user/JaaiDead): Live Minecraft project listings and downloads.
+- [CurseForge](https://www.curseforge.com/members/jaaidead/projects): CurseForge project listings.
+- [GitHub](https://github.com/JaaiDead): Source code and open source work.
+- [Contact](https://arcticquests.dev/#contact): Gmail, Discord, GitHub, Modrinth, and CurseForge links.
+- [Privacy](https://arcticquests.dev/privacy): Privacy policy.
+
+## Keywords
+
+Minecraft mod developer, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests,
+SplashOminous, Items Displayed, Nether's Exorcism, The Bygone, open source, web development.

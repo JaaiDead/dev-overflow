@@ -1,135 +1,115 @@
-import { ArrowDown } from "lucide-react";
-import { ROLES, BUSINESS_ROLES } from "../data";
+import { motion } from "framer-motion";
+import { ArrowDown, Github, Mail } from "lucide-react";
+import { TAGLINE } from "../data";
 import { useProfile } from "../contexts/ProfileContext";
-import InteractiveTerminal from "./InteractiveTerminal";
+import { cn } from "../lib/utils";
+import AuroraBackground from "./AuroraBackground";
+import ParticleField from "./ParticleField";
+import Button, { buttonVariants } from "./ui/Button";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export default function Hero() {
   const { profile } = useProfile();
   const isPersonal = profile === "personal";
-  const role = isPersonal ? ROLES[0] : BUSINESS_ROLES[0]; // Just display first role statically
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex min-h-0 items-center justify-center overflow-hidden px-6 py-32 md:py-40"
     >
-      {/* Grid bg */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,255,163,0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(0,255,163,0.03) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
+      <AuroraBackground />
+      <div className="grid-bg absolute inset-0 animate-grid-pan opacity-60" />
+      <ParticleField className="absolute inset-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg dark:to-dark-bg" />
 
-      {/* Radial glow centre */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,163,0.04)_0%,transparent_65%)]" />
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="relative z-10 mx-auto max-w-3xl text-center"
+      >
+        <motion.div
+          variants={item}
+          className="glass mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs text-text-dim dark:text-dark-text-dim"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow-primary dark:bg-dark-primary" />
+          {isPersonal ? "open to opportunities" : "available for new projects"}
+        </motion.div>
 
-      {/* Corner accents - curved */}
-      <div className="absolute top-20 left-8">
-        <svg width="100" height="100" viewBox="0 0 100 100" className="text-accent/50">
-          <path d="M 0 100 Q 0 0 100 0" stroke="currentColor" strokeWidth="1" fill="none" />
-        </svg>
-      </div>
-      <div className="absolute bottom-20 right-8">
-        <svg width="100" height="100" viewBox="0 0 100 100" className="text-accent/50">
-          <path d="M 100 0 Q 100 100 0 100" stroke="currentColor" strokeWidth="1" fill="none" />
-        </svg>
-      </div>
+        <motion.h1
+          variants={item}
+          className="gradient-text animate-gradient-x font-display text-[clamp(56px,12vw,120px)] font-extrabold leading-[0.95] tracking-tight"
+        >
+          {isPersonal ? "Jaai" : "ArcticQuests"}
+        </motion.h1>
 
-      {/* Floating decorative code */}
-      <pre className="absolute top-32 right-12 hidden xl:block font-mono text-[10px] text-white/[0.04] leading-relaxed pointer-events-none select-none text-right">
-        {`while (alive) {
-  learn()
-  build()
-  ship()
-  playChess()
-}`}
-      </pre>
+        {isPersonal && (
+          <motion.img
+            variants={item}
+            src="https://github.com/JaaiDead.png?size=256"
+            alt="Jaai's GitHub profile"
+            className="mx-auto mt-5 h-16 w-16 rounded-full border-2 border-primary/40 object-cover shadow-glow-primary dark:border-dark-primary/40"
+            width="64"
+            height="64"
+          />
+        )}
 
-      {/* Main */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Terminal prompt */}
-        <div className="inline-flex items-center gap-2 font-mono text-xs text-accent/80 mb-6 glass px-4 py-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-clay-accent" />
-          <span className="text-text-primary dark:text-dark-text-primary">jaai@dev:~$</span>
-          <span className="text-text-dim dark:text-dark-text-dim">whoami</span>
-        </div>
+        <motion.p
+          variants={item}
+          className="mx-auto mt-6 max-w-xl font-mono text-sm text-text-dim dark:text-dark-text-dim md:text-base"
+        >
+          {isPersonal ? TAGLINE.personal : TAGLINE.business}
+        </motion.p>
 
-        {/* Name - massive Bebas with gradient */}
-        <h1 className="font-display text-[clamp(80px,16vw,160px)] leading-none tracking-wide mb-2 text-gradient-accent animate-glow-pulse">
-          {isPersonal ? "JAAI" : "ARCTICQUESTS"}
-        </h1>
-
-        {/* Role subtitle */}
-        <div className="h-8 flex items-center justify-center mb-8">
-          <p className="font-mono text-base md:text-lg text-text-dim dark:text-dark-text-dim">
-            <span className="text-accent">›</span>{" "}
-            <span className="text-text-primary dark:text-dark-text-primary">{role}</span>
-          </p>
-        </div>
-
-        {/* Bio one-liner */}
-        <p className="font-body text-text-dim dark:text-dark-text-dim max-w-lg mx-auto mb-10 text-base leading-relaxed">
-          {isPersonal
-            ? "Building clean, creative software - Minecraft mods, web apps, open source. Based in code, fuelled by curiosity."
-            : "Professional game development and modding studio. Custom Minecraft mods, web applications, and open-source solutions tailored to your needs."}
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap justify-center gap-3">
-          <button
+        <motion.div
+          variants={item}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+          <Button
+            variant="primary"
             onClick={() =>
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="clay-button px-6 py-3 text-white font-mono font-bold text-sm hover:scale-105 active:scale-95 transition-all"
           >
-            ./view-projects
-          </button>
-          <button
+            View Projects
+          </Button>
+          <a
+            href="https://github.com/JaaiDead"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ variant: "outline" }))}
+          >
+            <Github size={15} /> GitHub
+          </a>
+          <Button
+            variant="ghost"
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="glass px-6 py-3 text-text-primary dark:text-dark-text-primary font-mono text-sm hover:text-accent hover:shadow-clay-hover transition-all hover:scale-105"
           >
-            ./contact-me
-          </button>
-        </div>
+            <Mail size={15} /> Contact
+          </Button>
+        </motion.div>
+      </motion.div>
 
-        {/* Quick links row */}
-        <div className="flex items-center justify-center gap-6 mt-10">
-          {[
-            { label: "github", href: "https://github.com/JaaiDead" },
-            { label: "modrinth", href: "https://modrinth.com/user/JaaiDead" },
-            { label: "email", href: "mailto:arcticquests.dev@gmail.com" },
-          ].map((l, i) => (
-            <span key={l.label} className="flex items-center gap-6">
-              {i > 0 && <span className="text-border dark:border-dark-border">·</span>}
-              <a
-                href={l.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs text-text-dim dark:text-dark-text-dim hover:text-accent transition-colors"
-              >
-                {l.label} ↗
-              </a>
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-10 flex justify-start pl-2 md:pl-6">
-          <InteractiveTerminal />
-        </div>
-      </div>
-
-      {/* Scroll arrow */}
-      <button
-        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-text-muted dark:text-dark-text-muted hover:text-accent transition-colors animate-float"
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
+        onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float text-text-muted transition-colors hover:text-primary dark:text-dark-text-muted dark:hover:text-dark-primary"
+        aria-label="Scroll to projects"
       >
         <ArrowDown size={18} />
-      </button>
+      </motion.button>
     </section>
   );
 }

@@ -1,62 +1,46 @@
+import { motion } from "framer-motion";
+import { GMAIL_COMPOSE_URL } from "../data";
+
 export default function Footer() {
   const year = new Date().getFullYear();
-
   return (
-    <footer className="relative py-10">
-      <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="glass-sm w-7 h-7 flex items-center justify-center font-mono text-accent text-xs font-bold">
-            J
-          </div>
-          <span className="font-mono text-xs text-text-dim dark:text-dark-text-dim">jaai.dev</span>
-        </div>
+    <footer className="relative border-t border-border px-6 py-10 dark:border-dark-border">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row">
+        <motion.div
+          animate={{ opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary font-display text-xs font-bold text-white shadow-glow-primary dark:from-dark-primary dark:to-dark-secondary dark:text-dark-bg"
+        >
+          J
+        </motion.div>
 
-        <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim text-center">
-          <span className="text-accent">©</span> {year} Jaai - built with{" "}
-          <a
-            href="https://viteplus.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            Vite+
-          </a>
-          {" · "}
-          <a
-            href="https://react.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            React
-          </a>
-          {" · "}
-          <a
-            href="https://tailwindcss.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            Tailwind
-          </a>
+        <p className="font-mono text-xs text-text-dim dark:text-dark-text-dim">
+          © {year} Jaai. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           {[
             { label: "github", href: "https://github.com/JaaiDead" },
             { label: "modrinth", href: "https://modrinth.com/user/JaaiDead" },
-            { label: "email", href: "mailto:arcticquests.dev@gmail.com" },
+            { label: "curseforge", href: "https://www.curseforge.com/members/jaaidead/projects" },
+            { label: "email", href: GMAIL_COMPOSE_URL },
           ].map((l) => (
             <a
               key={l.label}
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs text-text-dim dark:text-dark-text-dim hover:text-accent transition-colors"
+              className="font-mono text-xs text-text-dim transition-colors hover:text-primary dark:text-dark-text-dim dark:hover:text-dark-primary"
             >
-              {l.label} ↗
+              {l.label}
             </a>
           ))}
+          <a
+            href="/privacy"
+            className="font-mono text-xs text-text-dim transition-colors hover:text-primary dark:text-dark-text-dim dark:hover:text-dark-primary"
+          >
+            privacy
+          </a>
         </div>
       </div>
     </footer>

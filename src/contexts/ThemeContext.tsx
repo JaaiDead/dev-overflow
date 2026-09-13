@@ -13,8 +13,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     const stored = localStorage.getItem("theme");
-    // Default to dark theme if nothing stored
-    return (stored === "light" ? "light" : "dark") as Theme;
+    // Default to the pale sand theme if nothing is stored
+    return (stored === "dark" ? "dark" : "light") as Theme;
   });
 
   const setTheme = (newTheme: Theme) => {
