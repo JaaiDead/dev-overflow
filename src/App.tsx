@@ -46,7 +46,9 @@ function AppContent() {
 }
 
 export default function App() {
-  if (window.location.pathname === "/privacy") {
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  if (pathname === "/privacy") {
     return (
       <ThemeProvider>
         <PrivacyPolicy />
