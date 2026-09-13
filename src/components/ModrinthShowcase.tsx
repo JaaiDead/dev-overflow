@@ -77,13 +77,17 @@ export default function ModrinthShowcase() {
                   <div className="flex items-center gap-3">
                     {project.icon_url ? (
                       <img
-                        src={project.icon_url}
-                        alt=""
+                        src={`/images/projects/${project.slug}.webp`}
+                        alt={`${project.title} icon`}
                         className="h-11 w-11 rounded-xl object-cover"
                         width="44"
                         height="44"
                         loading="lazy"
                         decoding="async"
+                        onError={(event) => {
+                          event.currentTarget.onerror = null;
+                          event.currentTarget.src = "/favicon.svg";
+                        }}
                       />
                     ) : (
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2 dark:bg-dark-surface-2">

@@ -36,7 +36,7 @@ export default function Footer() {
             </a>
           ))}
           <a
-            href="/privacy"
+            href="/privacy/"
             className="font-mono text-xs text-text-dim transition-colors hover:text-primary dark:text-dark-text-dim dark:hover:text-dark-primary"
           >
             privacy

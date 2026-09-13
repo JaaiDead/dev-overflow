@@ -54,7 +54,7 @@ export default function Hero() {
         {isPersonal && (
           <motion.img
             variants={item}
-            src="https://github.com/JaaiDead.png?size=256"
+            src="/images/jaai-github.png"
             alt="Jaai's GitHub profile"
             className="mx-auto mt-5 h-16 w-16 rounded-full border-2 border-primary/40 object-cover shadow-glow-primary dark:border-dark-primary/40"
             width="64"
