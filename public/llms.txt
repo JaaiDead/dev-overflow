@@ -1,23 +1,138 @@
 # Jaai and ArcticQuests
 
-> Portfolio for Jaai, a modder.
+> Professional portfolio for Jaai, a developer and modder.
 
 ## About
 
-Jaai contributes to Minecraft projects with their teams and works primarily with Java,
-Fabric, and occasional Python tooling. The portfolio also covers open source documentation,
-web development, and ArcticQuests studio work.
+Jaai is a full-stack developer specializing in Minecraft modding with Fabric and Java. 
+Jaai founded ArcticQuests, a game development studio focused on custom mods, web applications, 
+and open-source contributions to the Minecraft ecosystem.
 
-## Project sources
+Years of experience: 4+
+Primary focus: Minecraft modding, web development, game development
+Main technologies: Java, Fabric API, TypeScript, React, Python
 
-- [Projects](https://arcticquests.dev/#projects): Project contributions and studio work.
-- [Modrinth](https://modrinth.com/user/JaaiDead): Live Minecraft project listings and downloads.
-- [CurseForge](https://www.curseforge.com/members/jaaidead/projects): CurseForge project listings.
-- [GitHub](https://github.com/JaaiDead): Source code and open source work.
-- [Contact](https://arcticquests.dev/#contact): Gmail, Discord, GitHub, Modrinth, and CurseForge links.
-- [Privacy](https://arcticquests.dev/privacy): Privacy policy.
+## Identity
+
+- **Name**: Jaai
+- **Title**: Developer & Modder
+- **Studio**: ArcticQuests (founded 2024)
+- **Location**: Not publicly specified
+- **Contact**: arcticquests.dev@gmail.com
+
+## Technical Skills
+
+### Languages
+- Java (primary, 90% proficiency)
+- TypeScript (70% proficiency)
+- JavaScript (82% proficiency)
+- HTML/CSS (85% proficiency)
+- Python (for tools and utilities)
+
+### Specializations
+- Minecraft Fabric Modding (88% proficiency)
+- Forge Modding (55% proficiency)
+- Mixin bytecode manipulation
+- Datagen and resource generation
+- Web development with React and Next.js
+- Full-stack TypeScript/React applications
+
+### Tools
+- Git version control
+- VS Code and IntelliJ IDEA
+- IntelliJ plugin development
+- Maven and Gradle build systems
+
+## Project Sources & Statistics
+
+### Modrinth
+- **Profile**: https://modrinth.com/user/JaaiDead
+- **Downloads**: 111.7K+ total
+- **Published Projects**: 12 mods
+
+### CurseForge
+- **Profile**: https://www.curseforge.com/members/jaaidead/projects
+- **Downloads**: 11.3K+
+
+### GitHub
+- **Profile**: https://github.com/JaaiDead
+- **Repositories**: 60+
+- **Type**: Public and open-source contributions
+
+### Portfolio Website
+- **URL**: https://arcticquests.dev
+- **Sections**: Projects, skills, experience, Modrinth showcase, contact
+- **Profiles Supported**: Personal (Jaai) and Business (ArcticQuests)
+- **FAQ**: https://arcticquests.dev/faq/
+- **Studio Portfolio**: https://arcticquests.dev/studio/
+- **Privacy Policy**: https://arcticquests.dev/privacy/
+
+## Notable Projects
+
+### ArcticQuests Studio Projects
+- Custom Minecraft mods for the ArcticQuests modpack and studio work
+- Game development and world design
+- Web development for gaming community projects
+
+### Published Mods (Sample)
+- SplashOminous - Custom splash screen system
+- Items Displayed - Display items in frames with improved visuals
+- Nether's Exorcism - Nether dimension enhancements
+- The Bygone - Custom biome and content additions
+
+### Open Source Contributions
+- Fabric Modding API ecosystem contributions
+- Official Fabric documentation contributions (2025+)
+- Community tools and libraries
+
+## Content Usage Policy
+
+### ✅ ALLOWED
+- **Search indexing**: Yes
+- **AI search queries**: Yes (e.g., Bing, Perplexity, ChatGPT web search)
+- **AI input/query processing**: Yes
+- **Answering questions about work**: Yes
+- **Referencing projects**: Yes
+- **Citing/linking work**: Yes
+
+### ❌ NOT ALLOWED
+- **AI model training**: No
+- Training data for foundation models or large language models
+
+### Rationale
+This site's content may be freely indexed by search engines and cited by AI systems.
+However, the content should not be used to train or fine-tune AI models without explicit permission.
+
+## Web Technologies
+
+This portfolio is built with:
+- React 18
+- TypeScript
+- Tailwind CSS
+- Vite + Vite Plus unified toolchain
+- Framer Motion for animations
+- Radix UI components
+
+## Navigation
+
+- [Home](https://arcticquests.dev/): Profile intro
+- [Projects](https://arcticquests.dev/#projects): Portfolio showcase
+- [Skills](https://arcticquests.dev/#skills): Technical abilities
+- [Experience](https://arcticquests.dev/#experience): Career timeline
+- [Modrinth](https://arcticquests.dev/#modrinth): Live mod showcase and statistics
+- [Contact](https://arcticquests.dev/#contact): Contact methods
+- [FAQ](https://arcticquests.dev/faq/): Common questions about Jaai and ArcticQuests
+- [Studio](https://arcticquests.dev/studio/): ArcticQuests business portfolio
+- [Privacy Policy](https://arcticquests.dev/privacy/): Data and privacy information
 
 ## Keywords
 
-Modder, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests,
-SplashOminous, Items Displayed, Nether's Exorcism, The Bygone, open source, web development.
+Modder, Fabric, Java, Python, TypeScript, React, Modrinth, CurseForge, GitHub, 
+ArcticQuests, Minecraft Mods, Game Development, Web Development, Open Source, Modding.
+
+## Metadata
+
+- **Last Updated**: 2026-09-14
+- **Canonical URL**: https://arcticquests.dev/
+- **Language**: English
+- **Sitemap**: https://arcticquests.dev/sitemap.xml

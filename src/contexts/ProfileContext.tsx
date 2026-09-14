@@ -9,8 +9,17 @@ interface ProfileContextType {
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
-export function ProfileProvider({ children }: { children: ReactNode }) {
+export function ProfileProvider({
+  children,
+  initialMode = "personal",
+}: {
+  children: ReactNode;
+  initialMode?: ProfileMode;
+}) {
   const [profile, setProfileState] = useState<ProfileMode>(() => {
+    if (initialMode === "business") {
+      return "business";
+    }
     const stored = localStorage.getItem("profile-mode");
     return (stored === "business" ? "business" : "personal") as ProfileMode;
   });

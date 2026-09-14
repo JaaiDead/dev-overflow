@@ -19,6 +19,12 @@ export default function Footer() {
         </p>
 
         <div className="flex items-center gap-5">
+          <a
+            href="/faq/"
+            className="font-mono text-xs text-text-dim transition-colors hover:text-primary dark:text-dark-text-dim dark:hover:text-dark-primary"
+          >
+            faq
+          </a>
           {[
             { label: "github", href: "https://github.com/JaaiDead" },
             { label: "modrinth", href: "https://modrinth.com/user/JaaiDead" },

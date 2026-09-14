@@ -4,20 +4,109 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jaai - Modder. Portfolio, projects, and open-source work." />
+    <meta
+      name="description"
+      content="Jaai - Developer, Modder & Game Dev Studio. Portfolio featuring Minecraft projects, open-source work, and ArcticQuests studio projects."
+    />
     <meta
       name="keywords"
-      content="Jaai, Modder, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests"
+      content="Jaai, Modder, Fabric, Java, Python, Modrinth, CurseForge, GitHub, ArcticQuests, Game Development, Minecraft Mods"
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <link rel="canonical" href="https://arcticquests.dev/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <title>Jaai · Dev</title>
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="ArcticQuests" />
+    <meta property="og:title" content="Jaai · Developer, Modder & Game Dev | ArcticQuests" />
+    <meta
+      property="og:description"
+      content="Explore Jaai's portfolio: Minecraft mods, game development, web projects, and open-source contributions. Lead developer at ArcticQuests studio."
+    />
+    <meta property="og:url" content="https://arcticquests.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://arcticquests.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jaai · Developer, Modder & Game Dev" />
+    <meta
+      name="twitter:description"
+      content="Developer & modder. Building Minecraft projects and web apps. ArcticQuests studio founder."
+    />
+    <meta name="twitter:image" content="https://arcticquests.dev/og-image.png" />
+
+    <title>Jaai · Developer, Modder & Game Dev | ArcticQuests</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://arcticquests.dev/#person",
+            "name": "Jaai",
+            "url": "https://arcticquests.dev/",
+            "image": "https://arcticquests.dev/images/jaai-github.png",
+            "jobTitle": "Developer & Modder",
+            "description": "Full-stack developer specializing in Minecraft modding with Fabric, Java, and Python. Founded ArcticQuests game development studio.",
+            "sameAs": [
+              "https://github.com/JaaiDead",
+              "https://modrinth.com/user/JaaiDead",
+              "https://www.curseforge.com/members/jaaidead"
+            ],
+            "knowsAbout": [
+              "Java Programming",
+              "Minecraft Modding",
+              "Fabric API",
+              "Web Development",
+              "TypeScript",
+              "React",
+              "Game Development"
+            ],
+            "worksFor": {
+              "@id": "https://arcticquests.dev/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://arcticquests.dev/#organization",
+            "name": "ArcticQuests",
+            "url": "https://arcticquests.dev/",
+            "logo": "https://arcticquests.dev/favicon.svg",
+            "description": "Game development studio specializing in custom Minecraft mods, web development, and open-source contributions.",
+            "sameAs": [
+              "https://github.com/JaaiDead",
+              "https://modrinth.com/user/JaaiDead",
+              "https://www.curseforge.com/members/jaaidead"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://arcticquests.dev/#website",
+            "url": "https://arcticquests.dev/",
+            "name": "ArcticQuests - Jaai's Portfolio",
+            "description": "Portfolio and project showcase for Jaai, a developer and modder. Featuring Minecraft mods, web projects, and open-source work.",
+            "publisher": {
+              "@id": "https://arcticquests.dev/#person"
+            }
+          }
+        ]
+      }
+    </script>
+
     <script>
       (function () {
         var stored = localStorage.getItem("theme");

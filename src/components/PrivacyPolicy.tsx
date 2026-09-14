@@ -4,6 +4,13 @@ import { GMAIL_COMPOSE_URL } from "../data";
 export default function PrivacyPolicy() {
   useEffect(() => {
     document.title = "Privacy Policy | Jaai";
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = "https://arcticquests.dev/privacy/";
   }, []);
 
   return (
@@ -15,7 +22,6 @@ export default function PrivacyPolicy() {
         >
           back to site
         </a>
-
         <header className="mb-10 mt-16">
           <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
             // privacy
@@ -27,16 +33,15 @@ export default function PrivacyPolicy() {
             Last updated: September 14, 2026
           </p>
         </header>
-
         <div className="glass rounded-3xl p-6 font-body text-sm leading-relaxed text-text-dim dark:text-dark-text-dim md:p-8">
           <p className="mb-6">
-            This is a static portfolio site with no user accounts or site-operated backend. The site
-            is hosted on GitHub Pages and proxied through Cloudflare, which provides Web Analytics.
-            Cloudflare reports aggregate page views, visits, performance metrics including Core Web
-            Vitals, and related breakdowns such as URL, browser, operating system, and country. The
-            site does not use its own advertising or analytics service.
+            This is a static portfolio site with no user accounts, forms that submit data to this
+            site, or site-operated backend. The site is hosted on GitHub Pages and proxied through
+            Cloudflare, which provides Web Analytics. Cloudflare may process aggregate page views,
+            visits, performance metrics including Core Web Vitals, and related breakdowns such as
+            URL, browser, operating system, and country. The site does not use its own advertising
+            or analytics service.
           </p>
-
           <div className="space-y-6">
             <section>
               <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary dark:text-dark-primary">
@@ -46,10 +51,10 @@ export default function PrivacyPolicy() {
                 When no theme has been selected, the site reads your device's system color
                 preference to choose light or dark mode. The selected theme and portfolio profile
                 are saved in your browser localStorage so they persist between visits. This
-                information stays on your device.
+                information stays on your device and can be removed by clearing this site's local
+                storage in your browser.
               </p>
             </section>
-
             <section>
               <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary dark:text-dark-primary">
                 Third-party services
@@ -65,12 +70,21 @@ export default function PrivacyPolicy() {
                 >
                   Cloudflare Privacy Policy
                 </a>
-                . The site also fetches public project data from the Modrinth API and links to
-                GitHub, Modrinth, CurseForge, Discord, and Gmail. Those services have their own
-                privacy policies and handle visits outside this site.
+                . The site fetches public project data from the Modrinth API and loads fonts from
+                Google Fonts. It also links to GitHub, Modrinth, CurseForge, Discord, and Gmail.
+                Those services have their own privacy policies and handle visits outside this site.
               </p>
             </section>
-
+            <section>
+              <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary dark:text-dark-primary">
+                Search and AI access
+              </h2>
+              <p>
+                Public pages are available for search indexing and AI-assisted question answering
+                and referencing. The site's crawler guidance requests that its content not be used
+                to train or fine-tune AI models.
+              </p>
+            </section>
             <section>
               <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary dark:text-dark-primary">
                 Contact
@@ -88,7 +102,6 @@ export default function PrivacyPolicy() {
                 arcticquests.dev@gmail.com
               </a>
             </section>
-
             <section>
               <h2 className="mb-2 font-mono text-xs uppercase tracking-widest text-primary dark:text-dark-primary">
                 Changes

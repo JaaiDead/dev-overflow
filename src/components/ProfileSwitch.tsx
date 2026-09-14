@@ -3,6 +3,16 @@ import { useProfile } from "../contexts/ProfileContext";
 export default function ProfileSwitch() {
   const { profile, setProfile } = useProfile();
 
+  const handleProfileSwitch = (mode: "personal" | "business") => {
+    setProfile(mode);
+    // Navigate to appropriate path
+    if (mode === "personal") {
+      window.history.pushState({}, "", "/");
+    } else {
+      window.history.pushState({}, "", "/studio/");
+    }
+  };
+
   return (
     <div
       role="tablist"
@@ -16,7 +26,7 @@ export default function ProfileSwitch() {
             key={mode}
             role="tab"
             aria-selected={active}
-            onClick={() => setProfile(mode)}
+            onClick={() => handleProfileSwitch(mode)}
             className={`relative z-10 rounded-full px-3 py-1.5 transition-colors ${
               active
                 ? "bg-white/20 text-text-primary shadow-inner backdrop-blur-md dark:bg-white/15 dark:text-dark-text-primary"

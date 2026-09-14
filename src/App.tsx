@@ -9,6 +9,7 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import ModrinthShowcase from "./components/ModrinthShowcase";
 import Contact from "./components/Contact";
+import FAQPage from "./components/FAQPage";
 import Footer from "./components/Footer";
 import MouseGlow from "./components/MouseGlow";
 import PrivacyPolicy from "./components/PrivacyPolicy";
@@ -48,8 +49,11 @@ function AppContent() {
 
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  const isStudioPath = pathname === "/studio" || pathname.startsWith("/studio/");
+  const isPrivacyPath = pathname === "/privacy";
+  const isFaqPath = pathname === "/faq";
 
-  if (pathname === "/privacy") {
+  if (isPrivacyPath) {
     return (
       <ThemeProvider>
         <PrivacyPolicy />
@@ -57,10 +61,22 @@ export default function App() {
     );
   }
 
+  if (isFaqPath) {
+    return (
+      <MotionConfig reducedMotion="user">
+        <ThemeProvider>
+          <ProfileProvider initialMode={isStudioPath ? "business" : "personal"}>
+            <FAQPage />
+          </ProfileProvider>
+        </ThemeProvider>
+      </MotionConfig>
+    );
+  }
+
   return (
     <MotionConfig reducedMotion="user">
       <ThemeProvider>
-        <ProfileProvider>
+        <ProfileProvider initialMode={isStudioPath ? "business" : "personal"}>
           <AppContent />
         </ProfileProvider>
       </ThemeProvider>

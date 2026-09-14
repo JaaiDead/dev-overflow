@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Let the incoming theme expand from the toggle instead of flashing across the page. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  clip-path: circle(0 at var(--theme-x) var(--theme-y));
+  animation: theme-fill 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes theme-fill {
+  to {
+    clip-path: circle(var(--theme-radius) at var(--theme-x) var(--theme-y));
+  }
+}
+
 @layer base {
   *,
   *::before,
@@ -134,6 +157,11 @@
 
 /* Global reduced-motion safety net */
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation: none;
+    clip-path: none;
+  }
+
   *,
   *::before,
   *::after {

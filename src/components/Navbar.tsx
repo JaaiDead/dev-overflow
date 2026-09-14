@@ -27,8 +27,36 @@ export default function Navbar() {
     return () => obs.disconnect();
   }, []);
 
-  const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    // Custom smooth scroll with easing
+    const startY = window.scrollY;
+    const targetY = target.getBoundingClientRect().top + window.scrollY - 80; // 80px offset for fixed nav
+    const distance = targetY - startY;
+    const duration = 800; // 800ms animation
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const scroll = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startY + distance * ease);
+
+      if (progress < 1) {
+        requestAnimationFrame(scroll);
+      }
+    };
+
+    requestAnimationFrame(scroll);
     setOpen(false);
   };
 
@@ -43,21 +71,27 @@ export default function Navbar() {
       </div>
 
       <header className="fixed top-4 left-1/2 z-50 w-[94vw] max-w-3xl -translate-x-1/2">
-        <nav className="glass flex items-center justify-between gap-2 rounded-full px-3 py-2">
-          <button
-            onClick={() => go("home")}
-            className="flex items-center gap-2 rounded-full px-2 py-1 font-mono text-sm font-semibold gradient-text"
+        <motion.nav
+          layout
+          className="glass flex items-center justify-between gap-2 rounded-full px-3 py-2"
+          style={{ contain: "layout" }}
+        >
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "home")}
+            className="flex items-center gap-2 rounded-full px-2 py-1 font-mono text-sm font-semibold gradient-text hover:opacity-80 transition-opacity"
           >
             jaai.dev
-          </button>
+          </a>
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-0.5 md:flex">
             {NAV_LINKS.map((l) => (
               <li key={l.href} className="relative">
-                <button
-                  onClick={() => go(l.href)}
-                  className={`relative z-10 rounded-full px-3.5 py-1.5 font-mono text-xs capitalize transition-colors ${
+                <a
+                  href={`#${l.href}`}
+                  onClick={(e) => handleNavClick(e, l.href)}
+                  className={`relative z-10 rounded-full px-3.5 py-1.5 font-mono text-xs capitalize transition-colors inline-block overflow-hidden ${
                     active === l.href
                       ? "text-text-primary dark:text-dark-text-primary"
                       : "text-text-dim hover:text-text-primary dark:text-dark-text-dim dark:hover:text-dark-text-primary"
@@ -66,12 +100,12 @@ export default function Navbar() {
                   {active === l.href && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-surface-2 dark:bg-dark-surface-2"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      className="absolute inset-0 -z-10 rounded-full bg-surface-2 dark:bg-dark-surface-2 pointer-events-none"
+                      transition={{ type: "tween", duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                   )}
                   {l.label}
-                </button>
+                </a>
               </li>
             ))}
           </ul>
@@ -89,7 +123,7 @@ export default function Navbar() {
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
-        </nav>
+        </motion.nav>
 
         <AnimatePresence>
           {open && (
@@ -101,17 +135,18 @@ export default function Navbar() {
               className="glass mt-2 flex flex-col gap-1 rounded-2xl p-3 md:hidden"
             >
               {NAV_LINKS.map((l) => (
-                <button
+                <a
                   key={l.href}
-                  onClick={() => go(l.href)}
-                  className={`rounded-lg px-3 py-2 text-left font-mono text-sm capitalize ${
+                  href={`#${l.href}`}
+                  onClick={(e) => handleNavClick(e, l.href)}
+                  className={`rounded-lg px-3 py-2 text-left font-mono text-sm capitalize block ${
                     active === l.href
                       ? "text-primary dark:text-dark-primary"
                       : "text-text-dim dark:text-dark-text-dim"
                   }`}
                 >
                   {l.label}
-                </button>
+                </a>
               ))}
               <div className="mt-2 flex items-center justify-between border-t border-border px-1 pt-3 dark:border-dark-border">
                 <ProfileSwitch />
