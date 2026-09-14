@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "../data";
@@ -10,6 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const progress = useScrollProgress();
+  const scrollFrame = useRef<number | null>(null);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -32,11 +33,13 @@ export default function Navbar() {
     const target = document.getElementById(id);
     if (!target) return;
 
-    // Custom smooth scroll with easing
+    setActive(id);
+    if (scrollFrame.current !== null) cancelAnimationFrame(scrollFrame.current);
+
     const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + window.scrollY - 80; // 80px offset for fixed nav
+    const targetY = target.getBoundingClientRect().top + window.scrollY - 80;
     const distance = targetY - startY;
-    const duration = 800; // 800ms animation
+    const duration = Math.min(1600, Math.max(500, Math.abs(distance) / 1.8));
     let startTime: number | null = null;
 
     const easeInOutCubic = (t: number) => {
@@ -52,11 +55,11 @@ export default function Navbar() {
       window.scrollTo(0, startY + distance * ease);
 
       if (progress < 1) {
-        requestAnimationFrame(scroll);
+        scrollFrame.current = requestAnimationFrame(scroll);
       }
     };
 
-    requestAnimationFrame(scroll);
+    scrollFrame.current = requestAnimationFrame(scroll);
     setOpen(false);
   };
 
