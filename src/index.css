@@ -35,35 +35,35 @@
     scroll-behavior: auto;
   }
   body {
-    background: #252321;
-    color: #f1eee8;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
     font-family: "Bricolage Grotesque", sans-serif;
     overflow-x: hidden;
   }
   html:not(.dark) body {
-    background: #e8e5df;
-    color: #262427;
+    background: var(--color-bg);
+    color: var(--color-text-primary);
   }
 
   ::-webkit-scrollbar {
     width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #252321;
+    background: var(--color-bg);
   }
   html:not(.dark) ::-webkit-scrollbar-track {
-    background: #e8e5df;
+    background: var(--color-bg);
   }
   ::-webkit-scrollbar-thumb {
-    background: #6b3f52;
+    background: var(--color-primary);
     border-radius: 2px;
   }
   ::selection {
-    background: rgba(107, 63, 82, 0.22);
+    background: var(--color-selection);
   }
 
   :focus-visible {
-    outline: 2px solid #6b3f52;
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -75,51 +75,53 @@
 }
 
 @layer utilities {
+  .content-gutter {
+    padding-left: clamp(1rem, 4vw, 3rem);
+    padding-right: clamp(1rem, 4vw, 3rem);
+  }
+
+  .section-space {
+    padding-top: clamp(4rem, 8vw, 6rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
   /* ---- Glassmorphism, used sparingly (nav pill, cards, modals) ---- */
   .glass {
-    background: rgba(245, 243, 239, 0.72);
+    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 84%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px var(--color-shadow);
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease;
   }
   .dark .glass {
-    background: rgba(48, 45, 42, 0.82);
-    border: 1px solid rgba(241, 238, 232, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px var(--color-shadow-dark);
   }
 
   .glass-strong {
-    background: rgba(245, 243, 239, 0.94);
+    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 96%, transparent);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
   }
   .dark .glass-strong {
-    background: rgba(48, 45, 42, 0.96);
-    border: 1px solid rgba(241, 238, 232, 0.12);
-  }
-
-  /* ---- Gradient / glow text ---- */
-  .gradient-text {
-    background: linear-gradient(90deg, #262427, #6b3f52, #262427);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .dark .gradient-text {
-    background: linear-gradient(90deg, #f1eee8, #c38a9d, #f1eee8);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+    border: 1px solid var(--color-border);
   }
 
   .text-glow {
     text-shadow:
-      0 0 20px rgba(107, 63, 82, 0.3),
-      0 0 60px rgba(107, 63, 82, 0.12);
+      0 0 20px var(--color-glow-primary),
+      0 0 60px var(--color-glow-primary-soft);
   }
 
   /* ---- Aurora background blobs ---- */
@@ -129,19 +131,6 @@
     filter: blur(90px);
     pointer-events: none;
     will-change: transform;
-  }
-
-  /* ---- Animated grid background ---- */
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(107, 63, 82, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(107, 63, 82, 0.08) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-  .dark .grid-bg {
-    background-image:
-      linear-gradient(rgba(195, 138, 157, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(195, 138, 157, 0.08) 1px, transparent 1px);
   }
 
   .mask-fade-x {

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "../data";
-import { useScrollProgress } from "../hooks";
+import { usePrefersReducedMotion, useScrollProgress } from "../hooks";
 import ThemeToggle from "./ThemeToggle";
 import ProfileSwitch from "./ProfileSwitch";
 
@@ -10,6 +10,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const progress = useScrollProgress();
+  const reducedMotion = usePrefersReducedMotion();
   const scrollFrame = useRef<number | null>(null);
 
   useEffect(() => {
@@ -39,6 +40,12 @@ export default function Navbar() {
     const startY = window.scrollY;
     const targetY = target.getBoundingClientRect().top + window.scrollY - 80;
     const distance = targetY - startY;
+    if (reducedMotion) {
+      window.scrollTo(0, targetY);
+      setOpen(false);
+      return;
+    }
+
     const duration = Math.min(1600, Math.max(500, Math.abs(distance) / 1.8));
     let startTime: number | null = null;
 
@@ -73,28 +80,28 @@ export default function Navbar() {
         />
       </div>
 
-      <header className="fixed top-4 left-1/2 z-50 w-[94vw] max-w-3xl -translate-x-1/2">
+      <header className="fixed top-4 left-1/2 z-50 w-[92vw] max-w-[1024px] -translate-x-1/2">
         <motion.nav
           layout
-          className="glass flex items-center justify-between gap-2 rounded-full px-3 py-2"
+          className="glass grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 rounded-full px-3 py-3 transition-colors duration-300 md:gap-3 md:px-4"
           style={{ contain: "layout" }}
         >
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "home")}
-            className="flex items-center gap-2 rounded-full px-2 py-1 font-mono text-sm font-semibold gradient-text hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 rounded-full px-2 py-1 font-mono text-sm font-semibold tracking-[-0.02em] text-primary transition-opacity hover:opacity-80 dark:text-dark-primary"
           >
             jaai.dev
           </a>
 
           {/* Desktop links */}
-          <ul className="hidden items-center gap-0.5 md:flex">
+          <ul className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 md:flex">
             {NAV_LINKS.map((l) => (
               <li key={l.href} className="relative">
                 <a
                   href={`#${l.href}`}
                   onClick={(e) => handleNavClick(e, l.href)}
-                  className={`relative z-10 rounded-full px-3.5 py-1.5 font-mono text-xs capitalize transition-colors inline-block overflow-hidden ${
+                  className={`relative z-10 inline-block overflow-hidden rounded-full px-3.5 py-1.5 font-mono text-[11px] leading-5 tracking-[0.04em] capitalize transition-colors ${
                     active === l.href
                       ? "text-text-primary dark:text-dark-text-primary"
                       : "text-text-dim hover:text-text-primary dark:text-dark-text-dim dark:hover:text-dark-text-primary"
@@ -142,7 +149,7 @@ export default function Navbar() {
                   key={l.href}
                   href={`#${l.href}`}
                   onClick={(e) => handleNavClick(e, l.href)}
-                  className={`rounded-lg px-3 py-2 text-left font-mono text-sm capitalize block ${
+                  className={`block rounded-lg px-3 py-2 text-left font-mono text-sm leading-6 tracking-[0.02em] capitalize ${
                     active === l.href
                       ? "text-primary dark:text-dark-primary"
                       : "text-text-dim dark:text-dark-text-dim"

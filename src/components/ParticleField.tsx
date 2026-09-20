@@ -72,7 +72,9 @@ export default function ParticleField({ className = "" }: { className?: string }
       }
       lastFrame = timestamp;
       ctx!.clearRect(0, 0, width, height);
-      ctx!.fillStyle = "rgba(107, 63, 82, 0.45)";
+      ctx!.fillStyle = getComputedStyle(document.documentElement)
+        .getPropertyValue("--color-primary")
+        .trim();
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;

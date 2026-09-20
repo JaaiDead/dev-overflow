@@ -7,7 +7,7 @@ export default function Skills() {
   const skills = SKILLS_BY_CATEGORY[category];
 
   return (
-    <section id="skills" className="relative px-6 py-16">
+    <section id="skills" className="content-gutter section-space relative">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -16,12 +16,13 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
-            // skills
-          </p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary dark:text-dark-text-primary md:text-5xl">
-            What we work with
+            The current toolkit
           </h2>
+          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-text-dim dark:text-dark-text-dim">
+            Languages, frameworks, and tools that show up in the mods, sites, and open-source work
+            above.
+          </p>
         </motion.div>
 
         <div className="mb-10 flex flex-wrap gap-2">
@@ -29,6 +30,7 @@ export default function Skills() {
             <button
               key={c}
               onClick={() => setCategory(c)}
+              aria-pressed={category === c}
               className={`rounded-full border px-4 py-2 font-mono text-xs transition-colors ${
                 category === c
                   ? "border-primary/50 bg-primary/10 text-primary dark:border-dark-primary/50 dark:bg-dark-primary/10 dark:text-dark-primary"
@@ -61,8 +63,9 @@ export default function Skills() {
                   <span className="font-mono text-sm text-text-primary dark:text-dark-text-primary">
                     {s.name}
                   </span>
-                  <span className="font-mono text-xs text-text-dim dark:text-dark-text-dim">
-                    {s.level}%
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-text-muted dark:text-dark-text-muted">
+                    working stack
+                    <span className="sr-only">, self-assessed proficiency {s.level}%</span>
                   </span>
                 </div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-surface-2 dark:bg-dark-surface-2">

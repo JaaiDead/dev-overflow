@@ -41,7 +41,7 @@ export default function FAQ() {
   const questions = profile === "business" ? STUDIO_FAQ : PERSONAL_FAQ;
 
   return (
-    <section id="faq" className="relative px-6 py-16" aria-labelledby="faq-title">
+    <section id="faq" className="content-gutter section-space relative" aria-labelledby="faq-title">
       <div className="mx-auto max-w-3xl">
         <p className="mb-3 text-center font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
           // faq

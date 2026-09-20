@@ -37,6 +37,17 @@ export function ProfileProvider({
     localStorage.setItem("profile-mode", profile);
   }, [profile]);
 
+  useEffect(() => {
+    const syncFromPath = () => {
+      const nextProfile: ProfileMode = window.location.pathname.startsWith("/studio")
+        ? "business"
+        : "personal";
+      setProfileState(nextProfile);
+    };
+    window.addEventListener("popstate", syncFromPath);
+    return () => window.removeEventListener("popstate", syncFromPath);
+  }, []);
+
   return (
     <ProfileContext.Provider value={{ profile, setProfile, toggleProfile }}>
       {children}

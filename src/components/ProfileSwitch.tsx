@@ -27,13 +27,14 @@ export default function ProfileSwitch() {
             role="tab"
             aria-selected={active}
             onClick={() => handleProfileSwitch(mode)}
+            aria-label={mode === "personal" ? "Personal portfolio" : "ArcticQuests studio"}
             className={`relative z-10 rounded-full px-3 py-1.5 transition-colors ${
               active
                 ? "bg-white/20 text-text-primary shadow-inner backdrop-blur-md dark:bg-white/15 dark:text-dark-text-primary"
                 : "text-text-dim hover:text-text-primary dark:text-dark-text-dim dark:hover:text-dark-text-primary"
             }`}
           >
-            {mode === "personal" ? "dev" : "studio"}
+            {mode === "personal" ? "Personal" : "Studio"}
           </button>
         );
       })}

@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg px-6 py-10 text-text-primary dark:bg-dark-bg dark:text-dark-text-primary">
+    <div className="content-gutter min-h-screen bg-[var(--color-privacy-bg)] py-10 text-text-primary dark:bg-[var(--color-privacy-bg)] dark:text-dark-text-primary">
       <main className="mx-auto max-w-2xl">
         <a
           href="/"

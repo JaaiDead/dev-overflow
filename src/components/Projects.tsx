@@ -81,23 +81,33 @@ function ProjectCard({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.4) }}
       style={reducedMotion ? undefined : { rotateX: srx, rotateY: sry, transformPerspective: 800 }}
-      className="glass group relative flex flex-col overflow-hidden rounded-2xl p-6 text-left transition-shadow hover:shadow-glow-primary"
+      type="button"
+      className={`glass group relative flex flex-col overflow-hidden rounded-2xl p-6 text-left transition-shadow hover:shadow-glow-primary ${
+        project.featured ? "lg:col-span-2 lg:min-h-[260px] lg:p-7" : ""
+      }`}
     >
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.06] via-secondary/[0.04] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-dark-primary/[0.08] dark:via-dark-secondary/[0.05]" />
 
       {project.featured && (
-        <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1 font-mono text-[10px] text-primary dark:bg-dark-primary/10 dark:text-dark-primary">
+        <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1 font-mono text-[11px] text-primary dark:bg-dark-primary/10 dark:text-dark-primary">
           <Star size={9} /> featured
         </div>
       )}
 
-      <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-surface-2 dark:bg-dark-surface-2">
-        {Icon && <Icon size={18} className="text-primary dark:text-dark-primary" />}
+      <div className="relative mb-4 flex items-start gap-3">
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-surface-2 dark:bg-dark-surface-2">
+          {Icon && <Icon size={18} className="text-primary dark:text-dark-primary" />}
+        </div>
+        <div className="min-w-0 pt-0.5">
+          <h3 className="font-display text-lg font-semibold text-text-primary dark:text-dark-text-primary">
+            {project.title}
+          </h3>
+          <p className="mt-1 font-mono text-[11px] tracking-wide text-primary dark:text-dark-primary">
+            {CATEGORY_LABEL[project.category]}
+            {project.timeline ? ` · ${project.timeline}` : ""}
+          </p>
+        </div>
       </div>
-
-      <h3 className="relative mb-1.5 font-display text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-        {project.title}
-      </h3>
       <p className="relative mb-5 flex-1 font-mono text-xs leading-relaxed text-text-dim dark:text-dark-text-dim">
         {project.desc}
       </p>
@@ -222,7 +232,7 @@ export default function Projects() {
   const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="relative px-6 py-16">
+    <section id="projects" className="content-gutter section-space relative">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -231,12 +241,15 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
-            // projects
-          </p>
+          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary"></p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary dark:text-dark-text-primary md:text-5xl">
-            {isPersonal ? "What we've built" : "Our services"}
+            {isPersonal ? "Selected work" : "What we can build"}
           </h2>
+          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-text-dim dark:text-dark-text-dim">
+            {isPersonal
+              ? "A mix of Minecraft experiments, open-source contributions, and the site you are currently exploring."
+              : "A focused set of services shaped around Minecraft modding, web development, and open-source work."}
+          </p>
         </motion.div>
 
         {/* Filters */}
@@ -245,6 +258,7 @@ export default function Projects() {
             <button
               key={c}
               onClick={() => setFilter(c)}
+              aria-pressed={filter === c}
               className={`rounded-full border px-3.5 py-1.5 font-mono text-[11px] transition-colors ${
                 filter === c
                   ? "border-primary/50 bg-primary/10 text-primary dark:border-dark-primary/50 dark:bg-dark-primary/10 dark:text-dark-primary"
@@ -256,7 +270,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filtered.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} onOpen={() => setOpenProject(p)} />
           ))}
