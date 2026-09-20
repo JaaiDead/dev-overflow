@@ -3,7 +3,11 @@ import { EXPERIENCE } from "../data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative px-6 py-16">
+    <section
+      id="experience"
+      className="content-gutter section-space relative"
+      aria-labelledby="experience-title"
+    >
       <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -12,12 +16,16 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
-            // experience
-          </p>
-          <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary dark:text-dark-text-primary md:text-5xl">
-            The journey so far
+          <h2
+            id="experience-title"
+            className="font-display text-4xl font-bold tracking-tight text-text-primary dark:text-dark-text-primary md:text-5xl"
+          >
+            From learning to contributing
           </h2>
+          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-text-dim dark:text-dark-text-dim">
+            A short timeline of how Minecraft modding became a way to learn, publish, and contribute
+            back.
+          </p>
         </motion.div>
 
         <div className="relative pl-8">

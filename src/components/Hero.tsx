@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Mail } from "lucide-react";
-import { TAGLINE } from "../data";
+import { ArrowDown, Github, Mail, Package } from "lucide-react";
+import { MODRINTH_USERNAME, STATS, TAGLINE } from "../data";
 import { useProfile } from "../contexts/ProfileContext";
 import { cn } from "../lib/utils";
 import AuroraBackground from "./AuroraBackground";
@@ -23,10 +23,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-0 items-center justify-center overflow-hidden px-6 py-32 md:py-40"
+      className="content-gutter relative flex min-h-0 items-center justify-center overflow-hidden py-[clamp(7rem,16vw,10rem)]"
     >
       <AuroraBackground />
-      <div className="grid-bg absolute inset-0 animate-grid-pan opacity-60" />
       <ParticleField className="absolute inset-0" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg dark:to-dark-bg" />
 
@@ -36,17 +35,9 @@ export default function Hero() {
         animate="show"
         className="relative z-10 mx-auto max-w-3xl text-center"
       >
-        <motion.div
-          variants={item}
-          className="glass mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs text-text-dim dark:text-dark-text-dim"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow-primary dark:bg-dark-primary" />
-          {isPersonal ? "open to opportunities" : "available for new projects"}
-        </motion.div>
-
         <motion.h1
           variants={item}
-          className="gradient-text animate-gradient-x font-display text-[clamp(56px,12vw,120px)] font-extrabold leading-[0.95] tracking-tight"
+          className="font-display text-[clamp(56px,12vw,120px)] font-extrabold leading-[0.95] tracking-tight text-text-primary dark:text-dark-text-primary"
         >
           {isPersonal ? "Jaai" : "ArcticQuests"}
         </motion.h1>
@@ -64,9 +55,18 @@ export default function Hero() {
 
         <motion.p
           variants={item}
-          className="mx-auto mt-6 max-w-xl font-mono text-sm text-text-dim dark:text-dark-text-dim md:text-base"
+          className="mt-5 font-display text-2xl font-semibold tracking-tight text-text-primary dark:text-dark-text-primary md:text-3xl"
         >
-          {isPersonal ? TAGLINE.personal : TAGLINE.business}
+          {TAGLINE[isPersonal ? "personal" : "business"]}
+        </motion.p>
+
+        <motion.p
+          variants={item}
+          className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed text-text-dim dark:text-dark-text-dim md:text-lg"
+        >
+          {isPersonal
+            ? "Building Minecraft mods, software, open-source projects, and experiments—then sharing the useful parts."
+            : "Custom Minecraft mods, web applications, and open-source solutions for ambitious projects."}
         </motion.p>
 
         <motion.div
@@ -97,7 +97,37 @@ export default function Hero() {
           >
             <Mail size={15} /> Contact
           </Button>
+          {isPersonal && (
+            <a
+              href={`https://modrinth.com/user/${MODRINTH_USERNAME}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(buttonVariants({ variant: "ghost" }))}
+            >
+              <Package size={15} /> Modrinth
+            </a>
+          )}
         </motion.div>
+
+        {isPersonal && (
+          <motion.div
+            variants={item}
+            className="mx-auto mt-12 grid max-w-xl grid-cols-3 divide-x divide-border/80 border-y border-border/80 py-5 dark:divide-dark-border/80 dark:border-dark-border/80"
+            aria-label="Portfolio highlights"
+          >
+            {STATS.map((stat) => (
+              <div key={stat.label} className="px-3 text-center">
+                <p className="font-display text-xl font-semibold text-text-primary dark:text-dark-text-primary">
+                  {stat.value}
+                  {stat.suffix}
+                </p>
+                <p className="mt-1 font-mono text-[11px] uppercase leading-relaxed tracking-wider text-text-muted dark:text-dark-text-muted">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.button

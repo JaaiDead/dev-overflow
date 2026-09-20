@@ -12,7 +12,7 @@ export default function ModrinthShowcase() {
   const { projects, status } = useModrinthProjects(MODRINTH_USERNAME);
 
   return (
-    <section id="modrinth" className="relative px-6 py-16">
+    <section id="modrinth" className="content-gutter section-space relative">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -21,15 +21,12 @@ export default function ModrinthShowcase() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-primary dark:text-dark-primary">
-            // modrinth
-          </p>
           <h2 className="font-display text-4xl font-bold tracking-tight text-text-primary dark:text-dark-text-primary md:text-5xl">
-            Minecraft projects
+            Live from Modrinth
           </h2>
           <p className="mt-4 max-w-2xl font-body text-sm leading-relaxed text-text-dim dark:text-dark-text-dim">
-            Projects I contribute to with their teams on Modrinth and CurseForge. These are team
-            efforts, not solo releases.
+            Team projects and releases from the Minecraft ecosystem, pulled from the public profile
+            so the showcase stays current. These are team efforts, not solo releases.
           </p>
         </motion.div>
 
@@ -106,7 +103,19 @@ export default function ModrinthShowcase() {
                 <p className="mb-5 flex-1 font-body text-xs leading-relaxed text-text-dim dark:text-dark-text-dim">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[10px] text-text-muted dark:text-dark-text-muted">
+                {project.categories.length > 0 && (
+                  <div className="mb-4 flex flex-wrap gap-1.5">
+                    {project.categories.slice(0, 3).map((category) => (
+                      <span
+                        key={category}
+                        className="rounded-full bg-primary/10 px-2 py-1 font-mono text-[11px] uppercase tracking-wider text-primary dark:bg-dark-primary/10 dark:text-dark-primary"
+                      >
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] text-text-muted dark:text-dark-text-muted">
                   <span className="flex items-center gap-1">
                     <Download size={11} /> {numberFormatter.format(project.downloads)} downloads
                   </span>

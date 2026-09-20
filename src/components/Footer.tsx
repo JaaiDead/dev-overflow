@@ -4,7 +4,7 @@ import { GMAIL_COMPOSE_URL } from "../data";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative px-6 py-10">
+    <footer className="content-gutter relative py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 md:flex-row">
         <motion.div
           animate={{ opacity: [0.7, 1, 0.7] }}

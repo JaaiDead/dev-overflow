@@ -65,7 +65,7 @@ export default function MouseGlow() {
       className="pointer-events-none fixed left-0 top-0 z-0 hidden h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.32] blur-[55px] dark:opacity-[0.3] md:block"
       style={{
         background:
-          "radial-gradient(circle, rgba(107,63,82,0.75) 0%, rgba(107,63,82,0.42) 45%, transparent 70%)",
+          "radial-gradient(circle, var(--color-mouse-glow) 0%, var(--color-mouse-glow-soft) 45%, transparent 70%)",
         transform: "translate3d(50vw, 50vh, 0) translate(-50%, -50%)",
       }}
     />

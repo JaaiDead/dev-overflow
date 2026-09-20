@@ -51,7 +51,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-bg text-text-primary transition-colors duration-300 dark:bg-dark-bg dark:text-dark-text-primary">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-6 pt-6">
+      <header className="content-gutter mx-auto flex max-w-5xl items-center justify-between pt-6">
         <a
           href="/"
           className="font-mono text-xs text-text-dim transition-colors hover:text-primary dark:text-dark-text-dim dark:hover:text-dark-primary"
